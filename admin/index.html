@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>لوحة تحكم Tyma Lashes</title>
+        <script
+            src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        <script
+            src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+        <style>
+      body {
+        margin: 0;
+        font-family: "Tajawal", "Cairo", sans-serif;
+        background: #faf7f9;
+        color: #231624;
+      }
+      .cms-shell {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 20px;
+      }
+      .cms-card {
+        width: min(960px, 100%);
+        background: white;
+        border: 1px solid #e8dbe6;
+        border-radius: 24px;
+        box-shadow: 0 12px 30px rgba(163, 136, 155, 0.1);
+        padding: 28px;
+      }
+      .cms-brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+      .cms-brand-badge {
+        width: 48px;
+        height: 48px;
+        border-radius: 16px;
+        background: #f4ebf6;
+        display: grid;
+        place-items: center;
+        color: #9e6b9b;
+        font-size: 24px;
+      }
+      .cms-brand h1 {
+        margin: 0;
+        font-size: 2rem;
+        color: #231624;
+      }
+      .cms-brand p {
+        margin: 4px 0 0;
+        color: #6b546d;
+        font-size: 0.95rem;
+      }
+    </style>
+    </head>
+    <body>
+        <div class="cms-shell">
+            <div class="cms-card">
+                <div class="cms-brand">
+                    <div class="cms-brand-badge">✦</div>
+                    <div>
+                        <h1>لوحة تحكم Tyma Lashes</h1>
+                        <p>إدارة النصوص، الخدمات، الصور، ومعرض الأعمال</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', (user) => {
+          if (!user) {
+            window.netlifyIdentity.on('login', () => {
+              document.location.href = '/admin/';
+            });
+          }
+        });
+      }
+    </script>
+    </body>
+</html>

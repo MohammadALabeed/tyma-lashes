@@ -1,0 +1,73 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+site_url: "https://example.com"
+show_preview_links: true
+
+collections:
+  - name: "site_data"
+    label: "بيانات الموقع"
+    files:
+      - file: "content/data.json"
+        label: "البيانات العامة"
+        name: "data"
+        fields:
+          - label: "معلومات الموقع"
+            name: "site"
+            widget: "object"
+            fields:
+              - { label: "اسم المتجر", name: "title", widget: "string" }
+              - { label: "العنوان الفرعي", name: "subtitle", widget: "string" }
+              - { label: "رقم الواتساب", name: "whatsapp", widget: "string" }
+              - {
+                  label: "رابط الواتساب",
+                  name: "whatsappLink",
+                  widget: "string",
+                }
+              - { label: "اسم الإنستغرام", name: "instagram", widget: "string" }
+              - {
+                  label: "رابط الإنستغرام",
+                  name: "instagramLink",
+                  widget: "string",
+                }
+
+          - label: "السلايدر"
+            name: "slider"
+            widget: "object"
+            fields:
+              - { label: "صورة قبل", name: "before", widget: "image" }
+              - { label: "صورة بعد", name: "after", widget: "image" }
+
+          - label: "معرض الأعمال"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "الصورة", name: "image", widget: "image" }
+              - { label: "النص البديل", name: "alt", widget: "string" }
+
+          - label: "الخدمات والأسعار"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "اسم الخدمة", name: "name", widget: "string" }
+              - { label: "التصنيف", name: "tag", widget: "string" }
+              - { label: "السعر", name: "price", widget: "string" }
+              - { label: "الوصف", name: "description", widget: "string" }
+              - { label: "سعر الرتوش", name: "refill", widget: "string" }
+              - { label: "ايقونة", name: "icon", widget: "string" }
+              - {
+                  label: "الأكثر طلباً",
+                  name: "featured",
+                  widget: "boolean",
+                  default: false,
+                }
+              - label: "المزايا"
+                name: "features"
+                widget: "list"
+                fields:
+                  - { label: "ميزة", name: "feature", widget: "string" }
