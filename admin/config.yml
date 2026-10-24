@@ -12,62 +12,333 @@ collections:
   - name: "site_data"
     label: "بيانات الموقع"
     files:
-      - file: "content/data.json"
-        label: "البيانات العامة"
-        name: "data"
+      - file: "content/site_data.json"
+        label: "محتوى الموقع كاملاً"
+        name: "site_data"
         fields:
-          - label: "معلومات الموقع"
-            name: "site"
+          - label: "الإعدادات العامة"
+            name: "general_settings"
             widget: "object"
             fields:
-              - { label: "اسم المتجر", name: "title", widget: "string" }
-              - { label: "العنوان الفرعي", name: "subtitle", widget: "string" }
-              - { label: "رقم الواتساب", name: "whatsapp", widget: "string" }
-              - {
-                  label: "رابط الواتساب",
-                  name: "whatsappLink",
-                  widget: "string",
-                }
-              - { label: "اسم الإنستغرام", name: "instagram", widget: "string" }
-              - {
-                  label: "رابط الإنستغرام",
-                  name: "instagramLink",
-                  widget: "string",
-                }
+              - { label: "اسم الصالون", name: "salon_name", widget: "string" }
+              - { label: "وصف الصالون المختصر", name: "salon_subtitle", widget: "string" }
+              - { label: "اللوغو", name: "logo", widget: "image", required: false }
+              - { label: "رقم الواتساب", name: "whatsapp_number", widget: "string" }
+              - { label: "رابط الواتساب للحجز", name: "whatsapp_link", widget: "string" }
+              - { label: "اسم حساب الإنستغرام", name: "instagram_handle", widget: "string" }
+              - { label: "رابط الإنستغرام", name: "instagram_url", widget: "string" }
+              - { label: "رابط الموقع الجغرافي", name: "location_url", widget: "string", required: false }
+              - { label: "عنوان الموقع", name: "location_address", widget: "string" }
+              - { label: "اسم حساب فيسبوك", name: "facebook_name", widget: "string" }
+              - { label: "رابط فيسبوك", name: "facebook_url", widget: "string" }
+              - { label: "وصف التذييل", name: "footer_description", widget: "text" }
+              - { label: "ملاحظة المواعيد", name: "appointment_note", widget: "string" }
 
-          - label: "السلايدر"
-            name: "slider"
+          - label: "القسم الرئيسي"
+            name: "hero_section"
             widget: "object"
             fields:
-              - { label: "صورة قبل", name: "before", widget: "image" }
-              - { label: "صورة بعد", name: "after", widget: "image" }
+              - { label: "النص التمهيدي", name: "eyebrow", widget: "string" }
+              - { label: "العنوان الرئيسي", name: "headline", widget: "string" }
+              - { label: "النص الفرعي", name: "subtitle", widget: "text" }
+              - { label: "نص الزر الرئيسي", name: "primary_cta_text", widget: "string" }
+              - { label: "رابط الزر الرئيسي", name: "primary_cta_url", widget: "string" }
+              - { label: "نص الزر الثانوي", name: "secondary_cta_text", widget: "string" }
+              - { label: "رابط الزر الثانوي", name: "secondary_cta_url", widget: "string" }
+              - { label: "صورة الخلفية / الغلاف", name: "cover_image", widget: "image" }
+              - { label: "النص البديل للصورة", name: "cover_alt", widget: "string" }
+              - { label: "عنوان الشارة فوق الصورة", name: "badge_title", widget: "string" }
+              - { label: "شرح الشارة فوق الصورة", name: "badge_description", widget: "string" }
+              - { label: "النص أسفل الصورة", name: "cover_caption", widget: "string" }
+
+          - label: "الأرقام الترويجية"
+            name: "stats_items"
+            widget: "list"
+            summary: "{{fields.number}} — {{fields.text}}"
+            fields:
+              - { label: "الرقم", name: "number", widget: "string" }
+              - { label: "النص المرفق", name: "text", widget: "string" }
+
+          - label: "قسم قبل وبعد"
+            name: "before_after_section"
+            widget: "object"
+            fields:
+              - { label: "النص التمهيدي", name: "eyebrow", widget: "string" }
+              - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "الوصف", name: "description", widget: "text" }
+              - { label: "صورة قبل", name: "before_image", widget: "image" }
+              - { label: "صورة بعد", name: "after_image", widget: "image" }
+              - { label: "تسمية قبل", name: "before_label", widget: "string" }
+              - { label: "تسمية بعد", name: "after_label", widget: "string" }
+              - { label: "تعليمات المقارنة", name: "comparison_hint", widget: "string" }
+              - { label: "وصف الجلسة", name: "comparison_caption", widget: "string" }
+              - label: "أزرار التصفية"
+                name: "filters"
+                widget: "list"
+                fields:
+                  - { label: "النص", name: "label", widget: "string" }
+                  - { label: "رمز التصنيف", name: "value", widget: "string" }
+              - label: "بطاقات النتائج"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "التصنيف", name: "category", widget: "string" }
+                  - { label: "الصورة", name: "image", widget: "image" }
+                  - { label: "النص البديل", name: "alt", widget: "string" }
+                  - { label: "العنوان", name: "title", widget: "string" }
+                  - { label: "الوصف", name: "description", widget: "text" }
+                  - { label: "نوع الإطلالة", name: "style", widget: "string" }
+                  - { label: "التفصيل", name: "detail", widget: "string" }
 
           - label: "معرض الأعمال"
-            name: "gallery"
-            widget: "list"
+            name: "gallery_section"
+            widget: "object"
             fields:
+              - { label: "النص التمهيدي", name: "eyebrow", widget: "string" }
               - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "نص زر الإنستغرام", name: "instagram_cta", widget: "string" }
+          - label: "صور المعرض"
+            name: "gallery_images"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "عنوان الصورة", name: "title", widget: "string" }
               - { label: "الصورة", name: "image", widget: "image" }
               - { label: "النص البديل", name: "alt", widget: "string" }
 
-          - label: "الخدمات والأسعار"
+          - label: "قسم الخدمات والأسعار"
+            name: "services_section"
+            widget: "object"
+            fields:
+              - { label: "النص التمهيدي", name: "eyebrow", widget: "string" }
+              - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "الوصف", name: "description", widget: "text" }
+              - { label: "تسمية سعر الرتوش", name: "refill_label", widget: "string" }
+              - { label: "شارة الخدمة المميزة", name: "featured_label", widget: "string" }
+              - { label: "نص زر الحجز", name: "booking_cta", widget: "string" }
+          - label: "الخدمات"
             name: "services"
             widget: "list"
+            summary: "{{fields.name}} — {{fields.price}}"
             fields:
               - { label: "اسم الخدمة", name: "name", widget: "string" }
               - { label: "التصنيف", name: "tag", widget: "string" }
+              - { label: "التفاصيل", name: "description", widget: "text" }
               - { label: "السعر", name: "price", widget: "string" }
-              - { label: "الوصف", name: "description", widget: "string" }
+              - { label: "المدة", name: "duration", widget: "string" }
               - { label: "سعر الرتوش", name: "refill", widget: "string" }
-              - { label: "ايقونة", name: "icon", widget: "string" }
-              - {
-                  label: "الأكثر طلباً",
-                  name: "featured",
-                  widget: "boolean",
-                  default: false,
-                }
-              - label: "المزايا"
+              - { label: "الأيقونة", name: "icon", widget: "string" }
+              - { label: "الخدمة الأكثر طلباً", name: "featured", widget: "boolean", default: false }
+              - label: "مزايا الخدمة"
                 name: "features"
                 widget: "list"
+                field: { label: "الميزة", name: "feature", widget: "string" }
+
+          - label: "قسم الحجز"
+            name: "booking_section"
+            widget: "object"
+            fields:
+              - { label: "النص التمهيدي", name: "eyebrow", widget: "string" }
+              - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "الوصف", name: "description", widget: "text" }
+              - label: "خطوات الحجز"
+                name: "steps"
+                widget: "list"
+                field: { label: "الخطوة", name: "step", widget: "string" }
+              - { label: "تسمية الخدمة", name: "service_label", widget: "string" }
+              - { label: "تسمية التاريخ", name: "date_label", widget: "string" }
+              - label: "أيام الحجز"
+                name: "days"
+                widget: "list"
+                field: { label: "اليوم", name: "day", widget: "string" }
+              - { label: "تسمية التاريخ المخصص", name: "custom_date_label", widget: "string" }
+              - { label: "نص التاريخ المخصص", name: "custom_date_placeholder", widget: "string" }
+              - { label: "ملاحظة التاريخ", name: "date_note", widget: "text" }
+              - { label: "تسمية بيانات العميلة", name: "client_label", widget: "string" }
+              - { label: "تسمية الاسم", name: "name_label", widget: "string" }
+              - { label: "مثال الاسم", name: "name_placeholder", widget: "string" }
+              - { label: "تسمية الهاتف", name: "phone_label", widget: "string" }
+              - { label: "مثال الهاتف", name: "phone_placeholder", widget: "string" }
+              - { label: "تسمية الملاحظات", name: "notes_label", widget: "string" }
+              - { label: "مثال الملاحظات", name: "notes_placeholder", widget: "string" }
+              - label: "رسائل الثقة"
+                name: "trust_badges"
+                widget: "list"
+                field: { label: "النص", name: "badge", widget: "string" }
+              - { label: "عنوان التنبيه", name: "warning_title", widget: "string" }
+              - { label: "نص التنبيه", name: "warning_text", widget: "text" }
+              - label: "موافقات الحجز"
+                name: "consents"
+                widget: "list"
+                field: { label: "الموافقة", name: "consent", widget: "string" }
+              - { label: "زر تأكيد الحجز", name: "submit_button", widget: "string" }
+              - { label: "رسالة الاسم الناقص", name: "validation_name", widget: "string" }
+              - { label: "رسالة الخدمة الناقصة", name: "validation_service", widget: "string" }
+              - { label: "رسالة الموافقات الناقصة", name: "validation_consent", widget: "string" }
+              - { label: "تحية رسالة واتساب", name: "whatsapp_greeting", widget: "string" }
+              - { label: "نص طلب الحجز", name: "whatsapp_request", widget: "string" }
+              - { label: "تسمية الاسم في واتساب", name: "whatsapp_name_label", widget: "string" }
+              - { label: "تسمية الخدمة في واتساب", name: "whatsapp_service_label", widget: "string" }
+              - { label: "تسمية التاريخ في واتساب", name: "whatsapp_date_label", widget: "string" }
+              - { label: "نص الملاحظات الفارغة", name: "whatsapp_no_notes", widget: "string" }
+
+          - label: "قسم ما قبل الجلسة"
+            name: "pre_session_section"
+            widget: "object"
+            fields:
+              - { label: "النص التمهيدي", name: "eyebrow", widget: "string" }
+              - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "الوصف", name: "description", widget: "text" }
+          - label: "إرشادات ما قبل الجلسة"
+            name: "pre_session"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "النص التوضيحي", name: "description", widget: "text" }
+              - { label: "الأيقونة", name: "icon", widget: "string" }
+
+          - label: "نصوص العناية اللاحقة"
+            name: "aftercare_section"
+            widget: "object"
+            fields:
+              - { label: "النص التمهيدي", name: "eyebrow", widget: "string" }
+              - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "نص زر المشاركة", name: "share_button", widget: "string" }
+              - { label: "عنوان الحاسبة", name: "calculator_heading", widget: "string" }
+              - { label: "عنوان دليل العناية", name: "checklist_title", widget: "string" }
+          - label: "إرشادات العناية اليومية والممنوعات"
+            name: "aftercare_checklist"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "التوضيح", name: "description", widget: "text" }
+              - { label: "الأيقونة", name: "icon", widget: "string" }
+
+          - label: "نصوص حاسبة مواعيد الرتوش"
+            name: "retouches_calculator_text"
+            widget: "object"
+            fields:
+              - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "حقل التاريخ", name: "date_label", widget: "string" }
+              - { label: "حقل نوع الطقم", name: "pack_type_label", widget: "string" }
+              - label: "أنواع الأطقم"
+                name: "pack_types"
+                widget: "list"
+                field: { label: "نوع الطقم", name: "pack_type", widget: "string" }
+              - { label: "نص زر الحساب", name: "calculate_button", widget: "string" }
+              - { label: "نص زر واتساب", name: "whatsapp_button", widget: "string" }
+              - { label: "رسالة التاريخ الناقص", name: "missing_date_message", widget: "string" }
+              - { label: "قالب النتيجة (استخدم {from} و {to})", name: "result_template", widget: "string" }
+              - { label: "رسالة واتساب", name: "whatsapp_message", widget: "string" }
+
+          - label: "قسم الأسئلة الشائعة"
+            name: "faq_section"
+            widget: "object"
+            fields:
+              - { label: "النص التمهيدي", name: "eyebrow", widget: "string" }
+              - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "الوصف", name: "description", widget: "text" }
+          - label: "الأسئلة الشائعة"
+            name: "faqs"
+            widget: "list"
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "السؤال", name: "question", widget: "string" }
+              - { label: "الجواب", name: "answer", widget: "text" }
+
+          - label: "قسم متجر العناية"
+            name: "care_products_section"
+            widget: "object"
+            fields:
+              - { label: "النص التمهيدي", name: "eyebrow", widget: "string" }
+              - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "الوصف", name: "description", widget: "text" }
+              - { label: "نص زر الطلب", name: "order_button", widget: "string" }
+              - { label: "قالب رسالة الطلب (استخدم {name})", name: "order_message_template", widget: "string" }
+          - label: "منتجات العناية"
+            name: "care_products"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.price}}"
+            fields:
+              - { label: "التصنيف", name: "category", widget: "string" }
+              - { label: "اسم المنتج", name: "name", widget: "string" }
+              - { label: "الوصف", name: "description", widget: "text" }
+              - { label: "السعر", name: "price", widget: "string" }
+              - { label: "الصورة", name: "image", widget: "image", required: false }
+              - { label: "الأيقونة", name: "icon", widget: "string" }
+
+          - label: "قسم بطاقة الإهداء"
+            name: "gift_card_section"
+            widget: "object"
+            fields:
+              - { label: "النص التمهيدي", name: "eyebrow", widget: "string" }
+              - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "الوصف", name: "description", widget: "text" }
+              - label: "مزايا الهدية"
+                name: "benefits"
+                widget: "list"
+                field: { label: "الميزة", name: "benefit", widget: "string" }
+              - { label: "نص زر الطلب", name: "cta", widget: "string" }
+              - { label: "رسالة واتساب", name: "whatsapp_message", widget: "string" }
+              - { label: "عنوان بطاقة الهدية", name: "card_label", widget: "string" }
+              - { label: "عنوان البطاقة", name: "card_eyebrow", widget: "string" }
+              - { label: "وصف البطاقة", name: "card_title", widget: "string" }
+              - { label: "النص أسفل البطاقة", name: "card_caption", widget: "string" }
+              - { label: "تسمية القيمة", name: "value_label", widget: "string" }
+              - { label: "قيمة البطاقة", name: "value", widget: "string" }
+
+          - label: "قسم التقييمات"
+            name: "reviews_section"
+            widget: "object"
+            fields:
+              - { label: "النص التمهيدي", name: "eyebrow", widget: "string" }
+              - { label: "عنوان القسم", name: "title", widget: "string" }
+              - { label: "متوسط التقييم", name: "rating", widget: "string" }
+              - { label: "زر إضافة تقييم", name: "add_review_button", widget: "string" }
+              - { label: "عنوان نافذة التقييم", name: "modal_title", widget: "string" }
+              - { label: "نص زر الإرسال", name: "submit_button", widget: "string" }
+              - { label: "تسمية حقل الاسم", name: "name_label", widget: "string" }
+              - { label: "تسمية حقل التقييم", name: "review_label", widget: "string" }
+              - { label: "تسمية حقل النجوم", name: "stars_label", widget: "string" }
+              - { label: "نص الإغلاق", name: "close_label", widget: "string" }
+              - label: "التقييمات الحالية"
+                name: "reviews"
+                widget: "list"
+                summary: "{{fields.name}} — {{fields.stars}} نجوم"
                 fields:
-                  - { label: "ميزة", name: "feature", widget: "string" }
+                  - { label: "الاسم", name: "name", widget: "string" }
+                  - { label: "نص التقييم", name: "text", widget: "text" }
+                  - { label: "النجوم", name: "stars", widget: "number", value_type: "int", min: 1, max: 5 }
+                  - { label: "مفعّل للعرض", name: "enabled", widget: "boolean", default: true }
+                  - { label: "وصف مختصر", name: "label", widget: "string" }
+
+          - label: "نصوص إضافية للموقع والحجز"
+            name: "page_copy"
+            widget: "object"
+            fields:
+              - label: "روابط التنقل"
+                name: "navigation"
+                widget: "object"
+                fields:
+                  - { label: "الخدمات", name: "services", widget: "string" }
+                  - { label: "قبل وبعد", name: "gallery", widget: "string" }
+                  - { label: "العناية", name: "care", widget: "string" }
+                  - { label: "الحجز", name: "booking", widget: "string" }
+                  - { label: "زر الحجز في الترويسة", name: "header_booking", widget: "string" }
+              - label: "نصوص التذييل"
+                name: "footer"
+                widget: "object"
+                fields:
+                  - { label: "عنوان الموقع", name: "location_title", widget: "string" }
+                  - { label: "عنوان التواصل", name: "contact_title", widget: "string" }
+                  - { label: "تسمية واتساب", name: "whatsapp_label", widget: "string" }
+                  - { label: "تسمية إنستغرام", name: "instagram_label", widget: "string" }
+                  - { label: "تسمية فيسبوك", name: "facebook_label", widget: "string" }
+                  - { label: "حقوق النشر", name: "copyright", widget: "string" }
+              - { label: "رسالة زر واتساب العائم", name: "floating_whatsapp_message", widget: "string" }
+              - { label: "النص البديل لزر واتساب", name: "whatsapp_accessible_label", widget: "string" }
+              - { label: "رسالة نجاح الحجز", name: "booking_success", widget: "string" }
+              - { label: "رسالة نسخ العناية", name: "aftercare_saved", widget: "string" }
+              - { label: "رسالة تعذر نسخ العناية", name: "aftercare_unavailable", widget: "string" }

@@ -82,16 +82,18 @@
   </head>
   <body
     class="bg-[#FAF7F9] text-[#231624] min-h-screen relative selection:bg-[#D8B4E2]/30 selection:text-[#231624]">
+    <div id="content-load-error" class="hidden fixed top-24 inset-x-4 z-[90] mx-auto max-w-xl rounded-2xl border border-red-300 bg-red-50 px-5 py-3 text-center text-sm text-red-800" role="alert"></div>
     <!-- HEADER -->
     <header
       class="fixed top-0 left-0 right-0 w-full z-50 bg-[#FAF7F9]/90 backdrop-blur-md border-b border-[#E8DBE6]/60">
       <div
         class="h-20 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
         <!-- Brand Logo -->
-        <a class="flex items-center gap-3" href="#">
+        <a class="flex items-center gap-3" href="#" id="brand-home-link">
           <div
             class="w-10 h-10 rounded-2xl bg-[#F4EBF6] border border-[#E8DBE6] flex items-center justify-center text-[#9E6B9B] shadow-sm">
-            <span class="material-symbols-outlined text-[24px]">spa</span>
+            <span class="material-symbols-outlined text-[24px]" id="site-logo-icon">spa</span>
+            <img alt="" class="hidden w-full h-full object-contain" id="site-logo-image" />
           </div>
           <div class="flex flex-col">
             <span id="site-brand-name"
@@ -104,22 +106,22 @@
         </a>
         <!-- Navigation -->
         <nav class="hidden md:flex items-center gap-8">
-          <a
+          <a data-cms="navigation.services"
             class="text-[#A3889B] font-bold text-sm tracking-wide transition-colors"
             href="#services-pricing">الخدمات والأسعار</a>
-          <a
+          <a data-cms="navigation.gallery"
             class="text-[#6B546D] hover:text-[#231624] font-medium text-sm transition-colors"
             href="#before-after">قبل وبعد</a>
-          <a
+          <a data-cms="navigation.care"
             class="text-[#6B546D] hover:text-[#231624] font-medium text-sm transition-colors"
             href="#care">العناية</a>
-          <a
+          <a data-cms="navigation.booking"
             class="text-[#6B546D] hover:text-[#231624] font-medium text-sm transition-colors"
             href="#booking">الحجز</a>
         </nav>
         <!-- Action -->
         <div class="flex items-center gap-3">
-          <a
+          <a data-cms="navigation.header_booking"
             class="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#A3889B] hover:bg-[#8F7287] text-white font-medium text-sm shadow-md shadow-[#A3889B]/25 transition-all duration-300 transform hover:-translate-y-0.5"
             href="#booking">
             احجزي موعدك
@@ -137,16 +139,16 @@
               <!-- Pill Badge with Lavender Glow -->
               <div
                 class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F4EBF6] border border-[#E8DBE6] text-[#9E6B9B] shadow-lavender-glow">
-                <span class="text-xs font-semibold">صالون Tyma Lashes
+                <span class="text-xs font-semibold" id="hero-eyebrow">صالون Tyma Lashes
                   التخصصي</span>
               </div>
               <!-- Main Headline -->
-              <h1
+              <h1 id="hero-headline"
                 class="text-4xl lg:text-6xl font-extrabold text-[#231624] leading-[1.2] tracking-tight">
                 سحر العيون بلمسة احترافية تدوم لأسابيع
               </h1>
               <!-- Subheadline -->
-              <p class="text-lg text-[#6B546D] max-w-xl leading-relaxed">
+              <p id="hero-subtitle" class="text-lg text-[#6B546D] max-w-xl leading-relaxed">
                 نمنح عينيكِ إطلالة أنثوية حالمة تجمع بين الأمان الفائق، رموش
                 حريرية فائقة الخفة، وتقنية عزل يدوي بدقة متناهية لتنسجم مع
                 انحناءات رموشك الطبيعية وتحافظ على سلامتها.
@@ -155,18 +157,18 @@
               <div class="flex flex-wrap items-center gap-4 pt-2">
                 <a
                   class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[#A3889B] hover:bg-[#8F7287] text-white font-semibold text-base shadow-lg shadow-[#A3889B]/25 transition-all duration-300 transform hover:-translate-y-0.5"
-                  href="#booking">
-                  <span>احجزي موعدك الآن</span>
+                  href="#booking" id="hero-primary-cta">
+                  <span id="hero-primary-cta-text">احجزي موعدك الآن</span>
                 </a>
                 <a
                   class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white hover:bg-[#F4EBF6] text-[#6B546D] hover:text-[#231624] border border-[#E8DBE6] font-medium text-base transition-all duration-300"
-                  href="#services-pricing">
-                  <span>استكشفي الخدمات والأسعار ↓</span>
+                  href="#services-pricing" id="hero-secondary-cta">
+                  <span id="hero-secondary-cta-text">استكشفي الخدمات والأسعار ↓</span>
                 </a>
               </div>
               <!-- Trust Metrics Bar -->
               <div
-                class="w-full grid grid-cols-3 gap-4 pt-6 mt-4 bg-white/70 backdrop-blur-sm border border-[#E8DBE6] p-5 rounded-3xl shadow-soft-mauve">
+                id="stats-grid" class="w-full grid grid-cols-3 gap-4 pt-6 mt-4 bg-white/70 backdrop-blur-sm border border-[#E8DBE6] p-5 rounded-3xl shadow-soft-mauve">
                 <div
                   class="flex flex-col items-center sm:items-start text-center sm:text-right">
                   <span class="text-xl font-bold text-[#231624]">4.9</span>
@@ -192,21 +194,21 @@
               <div
                 class="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-soft-mauve border border-[#E8DBE6] bg-white p-2">
                 <div class="w-full h-full rounded-2xl overflow-hidden relative">
-                  <img alt="تركيب رموش فاخرة في استوديو تيما"
+                  <img id="hero-cover-image" alt="تركيب رموش فاخرة في استوديو تيما"
                     class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuARGB9JUai61ORNWH0ECW35pqCkOXSQifH3HtLjEXsxvgC3fYSuJNpgKmtHzEVjIMBrmfbe9vywfuIjsODSvLs6uAKTbcRnrs7hPpumXpIWBi1uUy8s9woRXv9X7T3mOTHg6BAP_iu8FuMOTXJnYAWP8BImpB-M1R80pvHK_BNHAiSXD9El5_PNpHHXjM4hXvdSu0rmgqjB6ZGYZDOseheia-wlkX6wv474fPXbLfkCc7s5ZJhm-CWb" />
                   <!-- Floating Badge Top -->
                   <div
                     class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-2xl border border-[#E8DBE6] shadow-sm flex items-center gap-2">
-                    <span
+                    <span id="reviews-eyebrow"
                       class="w-6 h-6 rounded-full bg-[#F4EBF6] text-[#9E6B9B] flex items-center justify-center">
                       <span
                         class="material-symbols-outlined text-[15px]">check</span>
                     </span>
                     <div class="flex flex-col">
-                      <span class="text-xs font-bold text-[#231624]">عزل احترافي
+                      <span id="hero-badge-title" class="text-xs font-bold text-[#231624]">عزل احترافي
                         آمن</span>
-                      <span class="text-[10px] text-[#6B546D]">بدون شد أو
+                      <span id="hero-badge-description" class="text-[10px] text-[#6B546D]">بدون شد أو
                         تكتل</span>
                     </div>
                   </div>
@@ -214,7 +216,7 @@
                   <div
                     class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3.5 rounded-2xl border border-[#E8DBE6] shadow-sm flex items-center justify-center">
                     <span
-                      class="text-xs font-semibold text-[#231624] text-center">خفيفة
+                      id="hero-cover-caption" class="text-xs font-semibold text-[#231624] text-center">خفيفة
                       كالحرير على العين</span>
                   </div>
                 </div>
@@ -228,12 +230,12 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center">
           <div
             class="flex flex-col items-center text-center max-w-2xl gap-3 mb-10">
-            <span
+            <span id="before-after-eyebrow"
               class="text-xs font-bold text-[#9E6B9B] uppercase tracking-widest bg-[#F4EBF6] px-4 py-1.5 rounded-full border border-[#E8DBE6]">تحول
               حقيقي ملموس</span>
-            <h2 class="text-3xl lg:text-4xl font-extrabold text-[#231624]">نتائج
+            <h2 id="before-after-title" class="text-3xl lg:text-4xl font-extrabold text-[#231624]">نتائج
               حقيقية.. شاهدي الفرق</h2>
-            <p class="text-sm md:text-base text-[#6B546D]">اسحبي المؤشر لاكتشاف
+            <p id="before-after-description" class="text-sm md:text-base text-[#6B546D]">اسحبي المؤشر لاكتشاف
               الفرق قبل وبعد التركيب الاحترافي ودقة التنسيق على عيون
               عميلاتنا.</p>
           </div>
@@ -284,23 +286,23 @@
                 </div>
               </div>
 
-              <div
+              <div id="before-image-label"
                 class="absolute left-4 top-4 bg-white/85 px-3 py-1.5 rounded-xl text-[#231624] text-xs font-bold border border-[#E8DBE6]">قبل
                 التركيب</div>
-              <div
+              <div id="after-image-label"
                 class="absolute right-4 top-4 bg-[#231624]/85 px-3 py-1.5 rounded-xl text-white text-xs font-bold border border-white/20">بعد
                 التركيب</div>
             </div>
 
             <div
               class="mt-4 flex items-center justify-between text-[#6B546D] text-xs px-2">
-              <span>اسحبي يميناً ويساراً للمقارنة التفاعلية</span>
-              <span class="text-[#9E6B9B] font-semibold">جلسة: تصميم طبيعي
+              <span id="comparison-hint">اسحبي يميناً ويساراً للمقارنة التفاعلية</span>
+              <span id="comparison-caption" class="text-[#9E6B9B] font-semibold">جلسة: تصميم طبيعي
                 ومرن</span>
             </div>
           </div>
 
-          <div
+          <div id="before-after-cards"
             class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mt-12">
             <div
               class="gallery-card bg-white rounded-3xl p-5 border border-[#E8DBE6] shadow-card-lux hover:shadow-soft-mauve transition-all flex flex-col gap-4"
@@ -373,10 +375,10 @@
       <section class="w-full py-20 bg-white" id="instagram-showcase">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
           <div class="flex flex-col items-center text-center gap-3 mb-10">
-            <span
+            <span id="gallery-eyebrow"
               class="text-xs font-bold text-[#9E6B9B] uppercase tracking-widest bg-[#F4EBF6] px-4 py-1.5 rounded-full border border-[#E8DBE6]">معرض
               أعمالنا</span>
-            <h2 class="text-3xl lg:text-4xl font-extrabold text-[#231624]">معرض
+            <h2 id="gallery-title" class="text-3xl lg:text-4xl font-extrabold text-[#231624]">معرض
               أعمالنا | من لمسات تيما</h2>
           </div>
 
@@ -442,7 +444,7 @@
               class="inline-flex items-center justify-center gap-2 rounded-full bg-[#A3889B] hover:bg-[#8F7287] text-white px-6 py-3.5 text-sm font-bold shadow-lg shadow-[#A3889B]/25 transition-all duration-300">
               <span
                 class="material-symbols-outlined text-[20px]">photo_library</span>
-              <span>شاهدي المزيد على حسابنا في إنستغرام</span>
+              <span id="gallery-instagram-cta">شاهدي المزيد على حسابنا في إنستغرام</span>
             </a>
           </div>
         </div>
@@ -454,12 +456,12 @@
           <!-- Section Header -->
           <div
             class="flex flex-col items-center text-center max-w-2xl mx-auto gap-3 mb-16">
-            <span
+            <span id="services-eyebrow"
               class="text-xs font-bold text-[#9E6B9B] uppercase tracking-widest bg-[#F4EBF6] px-4 py-1.5 rounded-full border border-[#E8DBE6]">باقة
               الجمال المتكاملة</span>
-            <h2 class="text-3xl lg:text-4xl font-extrabold text-[#231624]">قائمة
+            <h2 id="services-title" class="text-3xl lg:text-4xl font-extrabold text-[#231624]">قائمة
               الخدمات والأسعار</h2>
-            <p class="text-sm md:text-base text-[#6B546D]">خدمات راقية مصممة
+            <p id="services-description" class="text-sm md:text-base text-[#6B546D]">خدمات راقية مصممة
               بدقة لتلائم رسمة عينك ونمط حياتك مع استشارة مخصصة قبل كل جلسة.</p>
           </div>
           <!-- 4 Cards Grid -->
@@ -470,7 +472,7 @@
               class="bg-white rounded-3xl p-6 border border-[#E8DBE6] shadow-card-lux hover:shadow-soft-mauve transition-all duration-300 flex flex-col justify-between">
               <div class="flex flex-col gap-4">
                 <div class="flex items-center justify-between">
-                  <span
+                  <span id="pre-session-eyebrow"
                     class="w-10 h-10 rounded-2xl bg-[#F4EBF6] text-[#9E6B9B] flex items-center justify-center">
                     <span
                       class="material-symbols-outlined text-[22px]">visibility</span>
@@ -702,13 +704,13 @@
             <span
               class="text-xs font-bold text-[#9E6B9B] uppercase tracking-widest bg-[#F4EBF6] px-4 py-1.5 rounded-full border border-[#E8DBE6]">لضمان
               أفضل ثبات</span>
-            <h2
+            <h2 id="pre-session-title"
               class="text-3xl lg:text-4xl font-extrabold text-[#231624]">تعليمات
               ما قبل الجلسة</h2>
-            <p class="text-sm md:text-base text-[#6B546D]">خطوات بسيطة تضمن لكِ
+            <p id="pre-session-description" class="text-sm md:text-base text-[#6B546D]">خطوات بسيطة تضمن لكِ
               جلسة هادئة ومريحة ونتيجة تدوم لأطول فترة ممكنة.</p>
           </div>
-          <div
+          <div id="pre-session-grid"
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
             <!-- Card 1 -->
             <div
@@ -788,16 +790,16 @@
               </span>
               <div>
                 <p
-                  class="text-[11px] font-bold text-[#9E6B9B] uppercase tracking-widest">حاسبة
+                  id="retouches-eyebrow" class="text-[11px] font-bold text-[#9E6B9B] uppercase tracking-widest">حاسبة
                   موعد الرتوش</p>
-                <h3 class="text-2xl font-extrabold text-[#231624]">حساب موعد
+                <h3 id="retouches-title" class="text-2xl font-extrabold text-[#231624]">حساب موعد
                   الرتوش القادم</h3>
               </div>
             </div>
 
             <div class="space-y-4">
               <div class="flex flex-col gap-1.5">
-                <label class="text-xs font-semibold text-[#6B546D]">تاريخ تركيب
+                <label id="retouches-date-label" class="text-xs font-semibold text-[#6B546D]">تاريخ تركيب
                   الرموش</label>
                 <input id="refill-install-date"
                   class="px-4 py-3 rounded-2xl bg-[#FAF7F9] border border-[#E8DBE6] text-[#231624] focus:outline-none focus:border-[#A3889B] focus:ring-1 focus:ring-[#A3889B] transition-all"
@@ -805,7 +807,7 @@
               </div>
 
               <div class="flex flex-col gap-1.5">
-                <label class="text-xs font-semibold text-[#6B546D]">نوع
+                <label id="retouches-pack-label" class="text-xs font-semibold text-[#6B546D]">نوع
                   الطقم</label>
                 <select id="refill-pack-type"
                   class="px-4 py-3 rounded-2xl bg-[#FAF7F9] border border-[#E8DBE6] text-[#231624] focus:outline-none focus:border-[#A3889B] focus:ring-1 focus:ring-[#A3889B] transition-all">
@@ -817,7 +819,7 @@
 
               <button id="calculate-refill-date"
                 class="w-full py-3.5 rounded-full bg-[#A3889B] hover:bg-[#8F7287] text-white font-bold text-sm transition-all duration-300 shadow-lg shadow-[#A3889B]/20">
-                احسبي موعد الرتوش القادم
+                <span id="retouches-calculate-button">احسبي موعد الرتوش القادم</span>
               </button>
 
               <div id="refill-result"
@@ -827,7 +829,7 @@
                   class="inline-flex items-center gap-2 rounded-full bg-white border border-[#E8DBE6] px-4 py-2 text-xs font-bold text-[#9E6B9B] hover:bg-[#FAF7F9] transition-all">
                   <span
                     class="material-symbols-outlined text-[17px]">send</span>
-                  <span>احجزي موعد الرتوش عبر الواتساب</span>
+                  <span id="retouches-whatsapp-button">احجزي موعد الرتوش عبر الواتساب</span>
                 </button>
               </div>
             </div>
@@ -845,9 +847,9 @@
                 </span>
                 <div>
                   <p
-                    class="text-[11px] font-bold text-[#9E6B9B] uppercase tracking-widest">العناية
+                    id="aftercare-eyebrow" class="text-[11px] font-bold text-[#9E6B9B] uppercase tracking-widest">العناية
                     اللاحقة</p>
-                  <h3 class="text-2xl font-extrabold text-[#231624]">شيك ليست
+                  <h3 id="aftercare-title" class="text-2xl font-extrabold text-[#231624]">شيك ليست
                     العناية اللاحقة</h3>
                 </div>
               </div>
@@ -855,17 +857,17 @@
                 class="inline-flex items-center gap-2 rounded-full border border-[#E8DBE6] bg-[#FAF7F9] px-3 py-2 text-[11px] font-semibold text-[#231624] hover:bg-[#F4EBF6] transition-all">
                 <span
                   class="material-symbols-outlined text-[17px] text-[#9E6B9B]">share</span>
-                حفظ / مشاركة
+                <span id="aftercare-share-button">حفظ / مشاركة</span>
               </button>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div id="aftercare-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4">
               <button
                 class="aftercare-card group rounded-[24px] border border-[#E8DBE6] bg-[#FAF7F9] p-4 text-right transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
                 data-title="أول 24-48 ساعة"
                 data-details="الابتعاد التام عن الماء، البخار، والساونا.">
                 <div class="flex items-center justify-between mb-3">
-                  <span
+                  <span id="booking-eyebrow"
                     class="text-[11px] font-bold text-[#9E6B9B] bg-white px-2.5 py-1 rounded-full border border-[#E8DBE6]">أول
                     24-48 ساعة</span>
                   <span
@@ -918,9 +920,9 @@
             <span
               class="text-xs font-bold text-[#9E6B9B] uppercase tracking-widest bg-[#F4EBF6] px-4 py-1.5 rounded-full border border-[#E8DBE6]">خطوة
               واحدة نحو التألق</span>
-            <h2 class="text-3xl lg:text-4xl font-extrabold text-[#231624]">احجزي
+            <h2 id="booking-title" class="text-3xl lg:text-4xl font-extrabold text-[#231624]">احجزي
               موعدكِ بكل سهولة</h2>
-            <p class="text-sm md:text-base text-[#6B546D]">اختاري الخدمة والوقت
+            <p id="booking-description" class="text-sm md:text-base text-[#6B546D]">اختاري الخدمة والوقت
               المناسب وسيتم تجهيز كل شيء لاستقبالك في أجواء من الخصوصية
               والرفاهية.</p>
           </div>
@@ -934,7 +936,7 @@
                 <div
                   class="w-9 h-9 rounded-full bg-[#A3889B] text-white text-xs font-bold flex items-center justify-center shadow-md shadow-[#A3889B]/30"
                   id="step-1-dot">1</div>
-                <span class="text-xs font-bold text-[#231624]">1. اختيار
+                <span id="booking-step-1" class="text-xs font-bold text-[#231624]">1. اختيار
                   الخدمة</span>
               </div>
               <div
@@ -942,7 +944,7 @@
                 <div
                   class="w-9 h-9 rounded-full bg-white border border-[#E8DBE6] text-[#6B546D] text-xs font-bold flex items-center justify-center"
                   id="step-2-dot">2</div>
-                <span class="text-xs text-[#6B546D] font-medium">2. اليوم
+                <span id="booking-step-2" class="text-xs text-[#6B546D] font-medium">2. اليوم
                   والوقت</span>
               </div>
               <div
@@ -950,7 +952,7 @@
                 <div
                   class="w-9 h-9 rounded-full bg-white border border-[#E8DBE6] text-[#6B546D] text-xs font-bold flex items-center justify-center"
                   id="step-3-dot">3</div>
-                <span class="text-xs text-[#6B546D] font-medium">3. تأكيد
+                <span id="booking-step-3" class="text-xs text-[#6B546D] font-medium">3. تأكيد
                   البيانات</span>
               </div>
             </div>
@@ -966,7 +968,7 @@
                   class="text-base font-bold text-[#231624] flex items-center gap-2">
                   <span
                     class="material-symbols-outlined text-[#9E6B9B] text-[20px]">brush</span>
-                  <span>1. اختاري نوع الجلسة المطلوبة:</span>
+                  <span id="booking-service-label">1. اختاري نوع الجلسة المطلوبة:</span>
                 </label>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3"
                   id="service-options">
@@ -1030,7 +1032,7 @@
                   class="text-base font-bold text-[#231624] flex items-center gap-2">
                   <span
                     class="material-symbols-outlined text-[#9E6B9B] text-[20px]">calendar_month</span>
-                  <span>2. اختاري اليوم المناسب:</span>
+                  <span id="booking-date-label">2. اختاري اليوم المناسب:</span>
                 </label>
                 <div class="flex flex-col xl:flex-row gap-3 xl:items-end">
                   <div
@@ -1075,7 +1077,7 @@
 
                   <div class="w-full xl:w-[240px]">
                     <label
-                      class="block text-xs font-bold text-[#6B546D] mb-1.5">أو
+                      id="booking-custom-date-label" class="block text-xs font-bold text-[#6B546D] mb-1.5">أو
                       اختاري تاريخاً محدداً</label>
                     <input
                       id="booking-custom-date"
@@ -1087,7 +1089,7 @@
                   </div>
                 </div>
                 <div
-                  class="rounded-2xl border border-[#E8DBE6] bg-[#F4EBF6]/80 p-3 text-xs text-[#6B546D] leading-relaxed">
+                  id="booking-date-note" class="rounded-2xl border border-[#E8DBE6] bg-[#F4EBF6]/80 p-3 text-xs text-[#6B546D] leading-relaxed">
                   سيتم تنسيق وتأكيد الساعة الدقيقة معكِ مباشرة عبر محادثة
                   الواتساب.
                 </div>
@@ -1098,11 +1100,11 @@
                   class="text-base font-bold text-[#231624] flex items-center gap-2">
                   <span
                     class="material-symbols-outlined text-[#9E6B9B] text-[20px]">person</span>
-                  <span>3. بيانات التواصل لسرعة التأكيد:</span>
+                  <span id="booking-client-label">3. بيانات التواصل لسرعة التأكيد:</span>
                 </label>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div class="flex flex-col gap-1.5">
-                    <span class="text-xs font-semibold text-[#6B546D]">الاسم
+                    <span id="booking-name-label" class="text-xs font-semibold text-[#6B546D]">الاسم
                       الكريم *</span>
                     <input
                       class="px-4 py-3 rounded-2xl bg-[#FAF7F9] border border-[#E8DBE6] text-[#231624] placeholder-[#6B546D]/50 text-xs sm:text-sm focus:outline-none focus:border-[#A3889B] focus:ring-1 focus:ring-[#A3889B] transition-all"
@@ -1110,7 +1112,7 @@
                       type="text" />
                   </div>
                   <div class="flex flex-col gap-1.5">
-                    <span class="text-xs font-semibold text-[#6B546D]">رقم
+                    <span id="booking-phone-label" class="text-xs font-semibold text-[#6B546D]">رقم
                       الجوال / الواتساب *</span>
                     <input
                       class="px-4 py-3 rounded-2xl bg-[#FAF7F9] border border-[#E8DBE6] text-[#231624] text-right placeholder-[#6B546D]/50 text-xs sm:text-sm focus:outline-none focus:border-[#A3889B] focus:ring-1 focus:ring-[#A3889B] transition-all"
@@ -1119,7 +1121,7 @@
                   </div>
                 </div>
                 <div class="flex flex-col gap-1.5 mt-2">
-                  <span class="text-xs font-semibold text-[#6B546D]">ملاحظات أو
+                  <span id="booking-notes-label" class="text-xs font-semibold text-[#6B546D]">ملاحظات أو
                     تفضيلات خاصة (اختياري)</span>
                   <textarea
                     class="px-4 py-3 rounded-2xl bg-[#FAF7F9] border border-[#E8DBE6] text-[#231624] placeholder-[#6B546D]/50 text-xs sm:text-sm focus:outline-none focus:border-[#A3889B] focus:ring-1 focus:ring-[#A3889B] transition-all resize-none"
@@ -1134,17 +1136,17 @@
                 <div class="flex items-center gap-1.5">
                   <span
                     class="material-symbols-outlined text-[#9E6B9B] text-[18px]">verified</span>
-                  <span>بدون أي دفع مسبق</span>
+                  <span id="booking-trust-1">بدون أي دفع مسبق</span>
                 </div>
                 <div class="flex items-center gap-1.5">
                   <span
                     class="material-symbols-outlined text-[#9E6B9B] text-[18px]">bolt</span>
-                  <span>تأكيد فوري عبر الواتساب</span>
+                  <span id="booking-trust-2">تأكيد فوري عبر الواتساب</span>
                 </div>
                 <div class="flex items-center gap-1.5">
                   <span
                     class="material-symbols-outlined text-[#9E6B9B] text-[18px]">event_repeat</span>
-                  <span>تعديل وإلغاء مرن</span>
+                  <span id="booking-trust-3">تعديل وإلغاء مرن</span>
                 </div>
               </div>
 
@@ -1154,9 +1156,9 @@
                   <span
                     class="material-symbols-outlined text-[#9E6B9B] text-[22px] mt-0.5">warning</span>
                   <div>
-                    <h3 class="text-sm font-bold text-[#231624] mb-1">تنبيه لطيف
+                    <h3 id="booking-warning-title" class="text-sm font-bold text-[#231624] mb-1">تنبيه لطيف
                       قبل الحجز</h3>
-                    <p class="text-xs text-[#6B546D] leading-relaxed">إذا كنتِ
+                    <p id="booking-warning-text" class="text-xs text-[#6B546D] leading-relaxed">إذا كنتِ
                       خضعتِ لعمليات الليزك خلال أقل من شهرين، أو تعانين من
                       التهاب في الجفن أو الحساسية النشطة، نرجو التواصل أولاً قبل
                       الحجز لتحديد ما إذا كانت الجلسة مناسبة لكِ.</p>
@@ -1170,21 +1172,21 @@
                   class="flex items-start gap-3 text-sm text-[#231624] cursor-pointer">
                   <input class="consent-checkbox mt-1 accent-[#A3889B] w-4 h-4"
                     type="checkbox" />
-                  <span>أقر بأني لست مصابة بأي حساسية سابقة من غراء الرموش أو
+                  <span data-booking-consent="0">أقر بأني لست مصابة بأي حساسية سابقة من غراء الرموش أو
                     التهابات في العين.</span>
                 </label>
                 <label
                   class="flex items-start gap-3 text-sm text-[#231624] cursor-pointer">
                   <input class="consent-checkbox mt-1 accent-[#A3889B] w-4 h-4"
                     type="checkbox" />
-                  <span>أتعهد بالحضور بدون أي مكياج أو مسكارا على العين وبدون
+                  <span data-booking-consent="1">أتعهد بالحضور بدون أي مكياج أو مسكارا على العين وبدون
                     عدسات لاصقة.</span>
                 </label>
                 <label
                   class="flex items-start gap-3 text-sm text-[#231624] cursor-pointer">
                   <input class="consent-checkbox mt-1 accent-[#A3889B] w-4 h-4"
                     type="checkbox" />
-                  <span>قرأت شروط الموعد (الحضور قبل 5 دقائق وإبلاغ الصالون قبل
+                  <span data-booking-consent="2">قرأت شروط الموعد (الحضور قبل 5 دقائق وإبلاغ الصالون قبل
                     24 ساعة في حال الإلغاء).</span>
                 </label>
               </div>
@@ -1196,8 +1198,8 @@
               <button id="booking-submit"
                 class="w-full py-4 rounded-full bg-[#A3889B] hover:bg-[#8F7287] text-white font-bold text-sm flex items-center justify-center gap-3 shadow-lg shadow-[#A3889B]/25 transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none"
                 type="submit" disabled>
-                <span>تأكيد الحجز عبر الواتساب</span>
-                <span
+                <span id="booking-submit-text">تأكيد الحجز عبر الواتساب</span>
+                <span id="faq-eyebrow"
                   class="material-symbols-outlined text-[19px]">arrow_forward</span>
               </button>
             </form>
@@ -1213,14 +1215,14 @@
             <span
               class="text-xs font-bold text-[#9E6B9B] uppercase tracking-widest bg-[#F4EBF6] px-4 py-1.5 rounded-full border border-[#E8DBE6]">إجابات
               الخبيرات</span>
-            <h2
+            <h2 id="faq-title"
               class="text-3xl lg:text-4xl font-extrabold text-[#231624]">الأسئلة
               الشائعة وإرشادات العناية</h2>
-            <p class="text-sm md:text-base text-[#6B546D]">كل ما يهمكِ معرفته
+            <p id="faq-description" class="text-sm md:text-base text-[#6B546D]">كل ما يهمكِ معرفته
               للحفاظ على سلامة عينيكِ ودوام رموشك بمظهر فائق النقاء والجمال.</p>
           </div>
           <!-- Accordion Items -->
-          <div class="w-full flex flex-col gap-3.5">
+          <div id="faq-list" class="w-full flex flex-col gap-3.5">
             <!-- FAQ 1 -->
             <div
               class="faq-item bg-white rounded-2xl p-5 border border-[#E8DBE6] shadow-sm transition-all duration-200">
@@ -1229,7 +1231,7 @@
                 type="button">
                 <span class="text-sm sm:text-base font-bold text-[#231624]">كيف
                   أحافظ على الرموش في أول 24 ساعة؟</span>
-                <span
+                <span id="products-eyebrow"
                   class="faq-icon material-symbols-outlined text-[#9E6B9B] transform transition-transform duration-300">expand_more</span>
               </button>
               <div
@@ -1338,14 +1340,14 @@
             <span
               class="text-[11px] font-bold text-[#9E6B9B] uppercase tracking-[0.2em] bg-[#F4EBF6] px-4 py-1.5 rounded-full border border-[#E8DBE6]">متجر
               العناية</span>
-            <h2 class="text-3xl lg:text-4xl font-extrabold text-[#231624]">متجر
+            <h2 id="products-title" class="text-3xl lg:text-4xl font-extrabold text-[#231624]">متجر
               منتجات العناية التكميلية</h2>
-            <p class="text-sm md:text-base text-[#6B546D] leading-relaxed">أساس
+            <p id="products-description" class="text-sm md:text-base text-[#6B546D] leading-relaxed">أساس
               للعناية المنزلية، تنظيف لطيف، وأدوات تساعدكِ على الحفاظ على رموشكِ
               فاخرة وطبيعية لأطول فترة ممكنة.</p>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
             <article
               class="bg-white border border-[#E8DBE6] rounded-[28px] p-5 shadow-soft-mauve flex flex-col h-full">
               <div
@@ -1481,13 +1483,13 @@
                   class="inline-flex w-fit items-center gap-2 rounded-full bg-[#F4EBF6] border border-[#E8DBE6] px-4 py-1.5 text-[11px] font-bold text-[#9E6B9B] uppercase tracking-[0.18em]">
                   <span
                     class="material-symbols-outlined text-[16px]">redeem</span>
-                  بطاقة هدية رقمية
+                  <span id="gift-eyebrow">بطاقة هدية رقمية</span>
                 </span>
-                <h2
+                <h2 id="gift-title"
                   class="mt-5 text-3xl md:text-4xl font-extrabold text-[#231624] leading-tight">كرت
                   إهداء لمن تحبين</h2>
                 <p
-                  class="mt-4 text-sm md:text-base text-[#6B546D] leading-relaxed">فاجئي
+                  id="gift-description" class="mt-4 text-sm md:text-base text-[#6B546D] leading-relaxed">فاجئي
                   صديقتكِ، أختكِ، أو من تحبين بجلسة عناية وجمال متكاملة للرموش.
                   يمكنكِ طلب كرت إهداء مخصص باسمها بمناسبة عيد ميلاد، تخرج، أو
                   لمجرد التعبير عن اهتمامكِ، ونحن ننسق معها موعد جلستها بكل
@@ -1497,21 +1499,21 @@
                   <span
                     class="inline-flex items-center gap-2 rounded-full bg-white border border-[#E8DBE6] px-3 py-1.5"><span
                       class="material-symbols-outlined text-[16px] text-[#9E6B9B]">verified</span>
-                    جلسة كاملة</span>
+                    <span data-gift-benefit="0">جلسة كاملة</span></span>
                   <span
                     class="inline-flex items-center gap-2 rounded-full bg-white border border-[#E8DBE6] px-3 py-1.5"><span
                       class="material-symbols-outlined text-[16px] text-[#9E6B9B]">card_giftcard</span>
-                    رصيد مخصص</span>
+                    <span data-gift-benefit="1">رصيد مخصص</span></span>
                   <span
                     class="inline-flex items-center gap-2 rounded-full bg-white border border-[#E8DBE6] px-3 py-1.5"><span
                       class="material-symbols-outlined text-[16px] text-[#9E6B9B]">favorite</span>
-                    هدية أنثوية</span>
+                    <span data-gift-benefit="2">هدية أنثوية</span></span>
                 </div>
                 <a
                   href="https://wa.me/963996932294?text=مرحباً%20تيما%2C%20حابة%20أطلب%20كرت%20إهداء%20لجلسة%20رموش%20لشخص%20عزيز%20%F0%9F%8E%81%20%20%20%20%20%E2%9C%A8"
                   target="_blank" rel="noopener noreferrer"
                   class="mt-8 inline-flex w-fit items-center justify-center gap-2 rounded-full bg-[#A3889B] hover:bg-[#8F7287] text-white px-6 py-3.5 text-sm font-bold shadow-lg shadow-[#A3889B]/25 transition-all duration-300">
-                  <span>اطلبي كرت إهداء عبر الواتساب</span>
+                  <span id="gift-cta">اطلبي كرت إهداء عبر الواتساب</span>
                   <span
                     class="material-symbols-outlined text-[18px]">send</span>
                 </a>
@@ -1523,23 +1525,23 @@
                   class="w-full max-w-xs rounded-[28px] border border-[#D7B777]/60 bg-gradient-to-br from-[#F7E7C1] via-[#E7C77C] to-[#C79D4F] p-4 shadow-2xl shadow-[#A3889B]/20">
                   <div class="flex items-center justify-between text-[#2B1B2B]">
                     <span
-                      class="text-[11px] font-bold tracking-[0.18em] uppercase">كرت
+                      id="gift-card-label" class="text-[11px] font-bold tracking-[0.18em] uppercase">كرت
                       إهداء خاص</span>
                   </div>
                   <div class="mt-8 border-t border-[#2B1B2B]/25 pt-5">
                     <p
-                      class="text-[11px] font-bold text-[#2B1B2B]/80 uppercase tracking-[0.2em]">هدية
+                      id="gift-card-eyebrow" class="text-[11px] font-bold text-[#2B1B2B]/80 uppercase tracking-[0.2em]">هدية
                       فاخرة</p>
                     <h3
-                      class="mt-2 text-2xl font-extrabold text-[#2B1B2B] leading-snug">جلسة
+                      id="gift-card-title" class="mt-2 text-2xl font-extrabold text-[#2B1B2B] leading-snug">جلسة
                       تركيب رموش مدفوعة مسبقاً</h3>
-                    <p class="mt-2 text-sm text-[#2B1B2B]/80">إهداء بكل محبة</p>
+                    <p id="gift-card-caption" class="mt-2 text-sm text-[#2B1B2B]/80">إهداء بكل محبة</p>
                   </div>
                   <div
                     class="mt-8 flex items-center justify-between text-[#2B1B2B]">
                     <span
-                      class="text-xs font-semibold uppercase tracking-[0.2em]">القيمة</span>
-                    <span class="text-xl font-extrabold">إهداء خاص</span>
+                      id="gift-value-label" class="text-xs font-semibold uppercase tracking-[0.2em]">القيمة</span>
+                    <span id="gift-value" class="text-xl font-extrabold">إهداء خاص</span>
                   </div>
                 </div>
               </div>
@@ -1555,16 +1557,16 @@
             <span
               class="text-[11px] font-bold text-[#9E6B9B] uppercase tracking-[0.2em] bg-[#F4EBF6] px-4 py-1.5 rounded-full border border-[#E8DBE6]">تجارب
               العملاء</span>
-            <h2 class="text-3xl lg:text-4xl font-extrabold text-[#231624]">تجارب
+            <h2 id="reviews-title" class="text-3xl lg:text-4xl font-extrabold text-[#231624]">تجارب
               حقيقية.. ثقة تتجدد مع كل نظرة</h2>
             <div
               class="mt-2 inline-flex items-center gap-2 rounded-full bg-white border border-[#E8DBE6] px-4 py-2 shadow-soft-mauve">
-              <span class="text-xl font-extrabold text-[#231624]">5.0</span>
-              <span class="text-[#F4B942] text-lg">★★★★★</span>
+              <span id="reviews-rating" class="text-xl font-extrabold text-[#231624]">5.0</span>
+              <span id="reviews-stars-rating" class="text-[#F4B942] text-lg">★★★★★</span>
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <article
               class="bg-white border border-[#E8DBE6] rounded-[28px] p-6 shadow-soft-mauve flex flex-col h-full">
               <div class="flex items-center justify-between mb-5">
@@ -1616,8 +1618,47 @@
                 class="text-sm leading-relaxed text-[#6B546D]">"النظافة والتعقيم والتعامل اللطيف لحالن بيستاهلوا 10 نجوم، غير دقة سحبة الـ Cat Eye اللي بتجنن."</p>
             </article>
           </div>
+          <div class="mt-8 text-center">
+            <button id="open-review-modal" type="button"
+              class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#A3889B] hover:bg-[#8F7287] text-white font-bold text-sm shadow-md transition-all">
+              أرسلي تقييمك
+            </button>
+          </div>
         </div>
       </section>
+      <div id="review-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-[#231624]/60 p-4" role="dialog" aria-modal="true" aria-labelledby="review-modal-title">
+        <div class="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-3xl bg-white p-6 sm:p-8 shadow-2xl">
+          <div class="mb-6 flex items-start justify-between gap-4">
+            <h2 id="review-modal-title" class="text-2xl font-extrabold text-[#231624]">شاركي تجربتكِ</h2>
+            <button id="close-review-modal" type="button" aria-label="إغلاق"
+              class="rounded-full px-3 py-1 text-2xl text-[#6B546D] hover:bg-[#F4EBF6]">&times;</button>
+          </div>
+          <form name="customer-review" method="POST" data-netlify="true" netlify-honeypot="review-anti-bot" action="/"
+            class="flex flex-col gap-4">
+            <input type="hidden" name="form-name" value="customer-review" />
+            <p class="hidden"><label>لا تملئي هذا الحقل: <input name="review-anti-bot" /></label></p>
+            <label class="flex flex-col gap-2 text-sm font-semibold text-[#231624]">
+              <span id="review-name-label">الاسم</span>
+              <input name="name" type="text" required maxlength="80"
+                class="rounded-xl border border-[#E8DBE6] bg-[#FAF7F9] px-4 py-3 font-normal" />
+            </label>
+            <label class="flex flex-col gap-2 text-sm font-semibold text-[#231624]">
+              <span id="review-text-label">تقييمك</span>
+              <textarea name="review" required maxlength="1200" rows="4"
+                class="rounded-xl border border-[#E8DBE6] bg-[#FAF7F9] px-4 py-3 font-normal"></textarea>
+            </label>
+            <label class="flex flex-col gap-2 text-sm font-semibold text-[#231624]">
+              <span id="review-stars-label">عدد النجوم</span>
+              <select name="stars" required
+                class="rounded-xl border border-[#E8DBE6] bg-[#FAF7F9] px-4 py-3 font-normal">
+                <option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option>
+              </select>
+            </label>
+            <button id="review-submit-button" type="submit"
+              class="mt-2 w-full rounded-full bg-[#A3889B] px-6 py-3 font-bold text-white hover:bg-[#8F7287]">إرسال التقييم</button>
+          </form>
+        </div>
+      </div>
     </main>
     <!-- FOOTER -->
     <footer class="w-full bg-[#FAF8F7] pt-12 pb-8 border-t border-gray-200"
@@ -1631,12 +1672,13 @@
               <div
                 class="w-10 h-10 rounded-2xl bg-[#F4EBF6] border border-[#E8DBE6] flex items-center justify-center text-[#9E6B9B] shadow-sm">
                 <span class="material-symbols-outlined text-[22px]">spa</span>
+                <img alt="" class="hidden w-full h-full object-contain" id="footer-logo-image" />
               </div>
               <span
-                class="text-[1.75rem] font-bold text-[#2D1830] tracking-tight">Tyma
+                id="footer-brand-name" class="text-[1.75rem] font-bold text-[#2D1830] tracking-tight">Tyma
                 Lashes</span>
             </div>
-            <p
+            <p id="footer-description"
               class="text-sm leading-relaxed text-gray-600 max-w-xs text-right">
               صالون تخصصي لتركيب ورفع الرموش بأعلى معايير الحرفية والجمال
               الطبيعي.
@@ -1645,55 +1687,55 @@
 
           <!-- Column 2: Location -->
           <div class="flex flex-col items-center md:items-center gap-3">
-            <h4 class="text-lg font-bold text-[#2D1830]">الموقع</h4>
-            <p class="text-sm font-medium text-gray-700">
+            <h4 id="footer-location-title" class="text-lg font-bold text-[#2D1830]">الموقع</h4>
+            <a id="footer-location-link" href="#" class="text-sm font-medium text-gray-700">
               بانياس • العنازة • اللاذقية
-            </p>
-            <p class="text-sm text-gray-500">الجلسات بتنسيق وحجز مسبق</p>
+            </a>
+            <p id="footer-appointment-note" class="text-sm text-gray-500">الجلسات بتنسيق وحجز مسبق</p>
           </div>
 
           <!-- Column 3: Contact -->
           <div
             class="flex flex-col items-start md:items-start gap-3 text-right">
-            <h4 class="text-lg font-bold text-[#2D1830]">التواصل</h4>
+            <h4 id="footer-contact-title" class="text-lg font-bold text-[#2D1830]">التواصل</h4>
             <a
-              href="https://wa.me/963996932294"
+              id="footer-whatsapp-link" href="https://wa.me/963996932294"
               target="_blank" rel="noopener noreferrer"
               class="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-[#9E6B9B] transition-colors text-right">
               <span
                 class="material-symbols-outlined text-[18px] text-[#9E6B9B]">chat</span>
-              <span>واتساب:</span> <span dir="ltr"
+              <span id="footer-whatsapp-label">واتساب:</span> <span id="footer-whatsapp-number" dir="ltr"
                 class="font-sans font-medium">0996 932 294</span>
             </a>
             <a
-              href="https://www.instagram.com/tyma_lashartist_"
+              id="footer-instagram-link" href="https://www.instagram.com/tyma_lashartist_"
               target="_blank" rel="noopener noreferrer"
               class="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-[#9E6B9B] transition-colors text-right">
               <span
                 class="material-symbols-outlined text-[18px] text-[#9E6B9B]">photo_camera</span>
-              <span>إنستغرام:</span> <span dir="ltr"
+              <span id="footer-instagram-label">إنستغرام:</span> <span id="footer-instagram-handle" dir="ltr"
                 class="font-sans">@tyma_lashartist_</span>
             </a>
             <a
-              href="https://www.facebook.com/share/1cwxPdEtws/?mibextid=wwXIfr"
+              id="footer-facebook-link" href="https://www.facebook.com/share/1cwxPdEtws/?mibextid=wwXIfr"
               target="_blank" rel="noopener noreferrer"
               class="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-[#9E6B9B] transition-colors text-right">
               <span
                 class="material-symbols-outlined text-[18px] text-[#9E6B9B]">facebook</span>
-              <span>فيسبوك:</span> <span dir="ltr"
+              <span id="footer-facebook-label">فيسبوك:</span> <span id="footer-facebook-name" dir="ltr"
                 class="font-sans">Tyma Lashes</span>
             </a>
           </div>
         </div>
 
         <div class="mt-8 pt-4 border-t border-gray-200">
-          <p class="text-center text-sm text-gray-600">جميع الحقوق محفوظة © Tyma
+          <p id="footer-copyright" class="text-center text-sm text-gray-600">جميع الحقوق محفوظة © Tyma
             Lashes 2026</p>
         </div>
       </div>
     </footer>
     <!-- FLOATING WHATSAPP BUTTON WITH SUBTLE PING BADGE -->
-    <a aria-label="WhatsApp"
+    <a id="floating-whatsapp-link" aria-label="WhatsApp"
       class="whatsapp-float fixed bottom-6 left-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-[#A3889B] hover:bg-[#8F7287] text-white shadow-xl shadow-[#A3889B]/40 transition-all duration-300 transform hover:scale-110"
       href="https://wa.me/963996932294?text=مرحباً%20تيما،%20عندي%20استفسار%20بخصوص%20جلسات%20الرموش"
       rel="noopener noreferrer" target="_blank">
@@ -1825,7 +1867,7 @@
       if (!installDateInput || !packTypeSelect || !resultBox || !resultText || !whatsappBtn) return;
 
       if (!installDateInput.value) {
-        resultText.textContent = 'يرجى اختيار تاريخ تركيب الرموش أولاً.';
+        resultText.textContent = activeSiteData?.retouches_calculator_text?.missing_date_message || 'يرجى اختيار تاريخ تركيب الرموش أولاً.';
         resultBox.classList.remove('hidden');
         return;
       }
@@ -1839,13 +1881,15 @@
       const minLabel = toArabicDate(minDate);
       const maxLabel = toArabicDate(maxDate);
       const packageName = packTypeSelect.value;
-      const message = `موعد الرتوش المثالي لرموشك هو بين ${minLabel} و ${maxLabel} للحفاظ على مظهرها وكثافتها`;
+      const resultTemplate = activeSiteData?.retouches_calculator_text?.result_template || 'موعد الرتوش المثالي لرموشك هو بين {from} و {to} للحفاظ على مظهرها وكثافتها';
+      const message = resultTemplate.replace('{from}', minLabel).replace('{to}', maxLabel);
       resultText.textContent = message;
       resultBox.classList.remove('hidden');
 
-      const whatsappText = `مرحباً تيما، حابة أحجز موعد رتوش لرموشي`;
+      const whatsappText = activeSiteData?.retouches_calculator_text?.whatsapp_message || `مرحباً تيما، حابة أحجز موعد رتوش لرموشي`;
       whatsappBtn.onclick = () => {
-        window.open(`https://wa.me/963996932294?text=${encodeURIComponent(whatsappText)}`, '_blank');
+        const settings = activeSiteData?.general_settings;
+        window.open(settings ? whatsappLink(settings, whatsappText) : `https://wa.me/963996932294?text=${encodeURIComponent(whatsappText)}`, '_blank', 'noopener');
       };
     });
 
@@ -1865,12 +1909,13 @@
         return `• ${title}: ${details}`;
       }).join('\n');
 
-      const shareText = `دليل العناية بعد تركيب الرموش:\n${checklistText}\n\nتمت مشاركتها من Tyma Lashes.`;
+      const checklistTitle = activeSiteData?.aftercare_section?.checklist_title || 'دليل العناية بعد تركيب الرموش';
+      const shareText = `${checklistTitle}:\n${checklistText}\n\nتمت مشاركتها من ${activeSiteData?.general_settings?.salon_name || 'Tyma Lashes'}.`;
 
       if (navigator.share) {
         try {
           await navigator.share({
-            title: 'دليل العناية بعد تركيب الرموش',
+            title: activeSiteData?.aftercare_section?.checklist_title || 'دليل العناية بعد تركيب الرموش',
             text: shareText
           });
           return;
@@ -1883,13 +1928,13 @@
         await navigator.clipboard.writeText(shareText);
         const statusBox = document.getElementById('booking-status');
         if (statusBox) {
-          statusBox.textContent = 'تم حفظ نصائح العناية في الحافظة بنجاح.';
+          statusBox.textContent = activeSiteData?.page_copy?.aftercare_saved || 'تم حفظ نصائح العناية في الحافظة بنجاح.';
           statusBox.classList.remove('hidden');
         }
       } catch (error) {
         const statusBox = document.getElementById('booking-status');
         if (statusBox) {
-          statusBox.textContent = 'لا يمكن حفظ النصائح الآن، ولكن يمكنك نسخها يدويًا.';
+          statusBox.textContent = activeSiteData?.page_copy?.aftercare_unavailable || 'لا يمكن حفظ النصائح الآن، ولكن يمكنك نسخها يدويًا.';
           statusBox.classList.remove('hidden');
         }
       }
@@ -1968,7 +2013,7 @@
       const data = { ...fallbackData };
 
       try {
-        const response = await fetch('./content/data.json', { cache: 'no-store' });
+        const response = await fetch('./content/site_data.json', { cache: 'no-store' });
         if (!response.ok) throw new Error('فشل تحميل البيانات');
         const parsed = await response.json();
         Object.assign(data, parsed);
@@ -2073,7 +2118,473 @@
       }
     }
 
-    loadCmsData();
+    loadSiteData();
+
+    let activeSiteData = null;
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"']/g, character => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      })[character]);
+    }
+
+    function safeContentUrl(value, fallback = '#') {
+      if (typeof value !== 'string') return fallback;
+      const url = value.trim();
+      return /^(https?:\/\/|\/(?!\/)|#)/i.test(url) ? url : fallback;
+    }
+
+    function setText(id, value) {
+      const element = document.getElementById(id);
+      if (element && value !== undefined && value !== null) element.textContent = value;
+    }
+
+    function setLink(id, value, fallback = '#') {
+      const element = document.getElementById(id);
+      if (element) element.href = safeContentUrl(value, fallback);
+    }
+
+    function setImage(id, value, alt) {
+      const element = document.getElementById(id);
+      if (!element || !value) return;
+      element.src = safeContentUrl(value, '');
+      if (alt !== undefined) element.alt = alt;
+    }
+
+    function starsMarkup(value) {
+      const stars = Math.max(1, Math.min(5, Number.parseInt(value, 10) || 5));
+      return '★'.repeat(stars) + '☆'.repeat(5 - stars);
+    }
+
+    function whatsappLink(settings, message) {
+      const base = safeContentUrl(settings.whatsapp_link, 'https://wa.me/');
+      return `${base}${base.includes('?') ? '&' : '?'}text=${encodeURIComponent(message)}`;
+    }
+
+    function renderPageCopy(data) {
+      const settings = data.general_settings;
+      const hero = data.hero_section;
+      const beforeAfter = data.before_after_section;
+      const gallery = data.gallery_section;
+      const servicesSection = data.services_section;
+      const preSection = data.pre_session_section;
+      const aftercare = data.aftercare_section;
+      const retouches = data.retouches_calculator_text;
+      const booking = data.booking_section;
+      const faq = data.faq_section;
+      const products = data.care_products_section;
+      const gift = data.gift_card_section;
+      const reviews = data.reviews_section;
+      const copy = data.page_copy;
+      const footer = copy.footer;
+
+      document.title = `${settings.salon_name} | ${settings.salon_subtitle}`;
+      setText('site-brand-name', settings.salon_name);
+      setText('site-brand-subtitle', settings.salon_subtitle);
+      setText('footer-brand-name', settings.salon_name);
+      setText('footer-description', settings.footer_description);
+      setText('footer-location-title', footer.location_title);
+      setText('footer-contact-title', footer.contact_title);
+      setText('footer-appointment-note', settings.appointment_note);
+      setText('footer-whatsapp-label', footer.whatsapp_label);
+      setText('footer-whatsapp-number', settings.whatsapp_number);
+      setText('footer-instagram-label', footer.instagram_label);
+      setText('footer-instagram-handle', settings.instagram_handle);
+      setText('footer-facebook-label', footer.facebook_label);
+      setText('footer-facebook-name', settings.facebook_name);
+      setText('footer-copyright', footer.copyright.replace('Tyma Lashes', settings.salon_name));
+      setText('footer-location-link', settings.location_address);
+      setLink('footer-location-link', settings.location_url, '#');
+      setLink('footer-whatsapp-link', settings.whatsapp_link);
+      setLink('footer-instagram-link', settings.instagram_url);
+      setLink('footer-facebook-link', settings.facebook_url);
+      setLink('instagram-link-showcase', settings.instagram_url);
+
+      const logo = document.getElementById('site-logo-image');
+      const logoIcon = document.getElementById('site-logo-icon');
+      if (logo && logoIcon && settings.logo) {
+        setImage('site-logo-image', settings.logo, settings.salon_name);
+        logo.classList.remove('hidden');
+        logoIcon.classList.add('hidden');
+      }
+      const footerLogo = document.getElementById('footer-logo-image');
+      if (footerLogo && settings.logo) {
+        setImage('footer-logo-image', settings.logo, settings.salon_name);
+        footerLogo.classList.remove('hidden');
+        const footerLogoIcon = footerLogo.previousElementSibling;
+        if (footerLogoIcon) footerLogoIcon.classList.add('hidden');
+      }
+
+      setText('hero-eyebrow', hero.eyebrow);
+      setText('hero-headline', hero.headline);
+      setText('hero-subtitle', hero.subtitle);
+      setText('hero-primary-cta-text', hero.primary_cta_text);
+      setText('hero-secondary-cta-text', hero.secondary_cta_text);
+      setLink('hero-primary-cta', hero.primary_cta_url);
+      setLink('hero-secondary-cta', hero.secondary_cta_url);
+      setImage('hero-cover-image', hero.cover_image, hero.cover_alt);
+      setText('hero-badge-title', hero.badge_title);
+      setText('hero-badge-description', hero.badge_description);
+      setText('hero-cover-caption', hero.cover_caption);
+
+      const statsRoot = document.getElementById('stats-grid');
+      if (statsRoot && Array.isArray(data.stats_items)) {
+        statsRoot.innerHTML = data.stats_items.map((item, index) => `
+          <div class="flex flex-col items-center sm:items-start text-center sm:text-right ${index === 1 ? 'border-x border-[#E8DBE6]/60 px-2' : ''}">
+            <span class="${index === 2 ? 'text-base' : 'text-xl'} font-bold text-[#231624]">${escapeHtml(item.number)}</span>
+            <span class="text-xs text-[#6B546D] mt-1 font-medium">${escapeHtml(item.text)}</span>
+          </div>`).join('');
+      }
+
+      setText('before-after-eyebrow', beforeAfter.eyebrow);
+      setText('before-after-title', beforeAfter.title);
+      setText('before-after-description', beforeAfter.description);
+      setText('before-image-label', beforeAfter.before_label);
+      setText('after-image-label', beforeAfter.after_label);
+      setText('comparison-hint', beforeAfter.comparison_hint);
+      setText('comparison-caption', beforeAfter.comparison_caption);
+      setImage('slider-before-image', beforeAfter.before_image, beforeAfter.before_label);
+      setImage('slider-after-image', beforeAfter.after_image, beforeAfter.after_label);
+
+      const filtersRoot = document.getElementById('gallery-filters');
+      if (filtersRoot && Array.isArray(beforeAfter.filters)) {
+        filtersRoot.innerHTML = beforeAfter.filters.map((filter, index) => `
+          <button class="filter-btn px-6 py-2.5 rounded-full text-xs ${index === 0 ? 'font-bold bg-[#A3889B] text-white shadow-md shadow-[#A3889B]/20' : 'font-medium bg-white border border-[#E8DBE6] text-[#6B546D] hover:bg-[#F4EBF6]'} transition-all duration-200"
+            data-filter="${escapeHtml(filter.value)}" type="button">${escapeHtml(filter.label)}</button>`).join('');
+        filtersRoot.querySelectorAll('.filter-btn').forEach(button => {
+          button.addEventListener('click', () => {
+            filtersRoot.querySelectorAll('.filter-btn').forEach(item => {
+              item.className = 'filter-btn px-6 py-2.5 rounded-full text-xs font-medium transition-all duration-200 bg-white border border-[#E8DBE6] text-[#6B546D] hover:bg-[#F4EBF6]';
+            });
+            button.className = 'filter-btn px-6 py-2.5 rounded-full text-xs font-bold transition-all duration-200 bg-[#A3889B] text-white shadow-md shadow-[#A3889B]/20';
+            const filter = button.dataset.filter;
+            document.querySelectorAll('.gallery-card').forEach(card => {
+              card.style.display = filter === 'all' || card.dataset.category === filter ? 'flex' : 'none';
+            });
+          });
+        });
+      }
+
+      const beforeAfterCards = document.getElementById('before-after-cards');
+      if (beforeAfterCards && Array.isArray(beforeAfter.cards)) {
+        beforeAfterCards.innerHTML = beforeAfter.cards.map(item => `
+          <article class="gallery-card bg-white rounded-3xl p-5 border border-[#E8DBE6] shadow-card-lux hover:shadow-soft-mauve transition-all flex flex-col gap-4" data-category="${escapeHtml(item.category)}">
+            <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-[#FAF7F9]">
+              <img class="w-full h-full object-cover" src="${escapeHtml(safeContentUrl(item.image, ''))}" alt="${escapeHtml(item.alt)}" />
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="text-base font-bold text-[#231624]">${escapeHtml(item.title)}</h3>
+              <p class="text-xs text-[#6B546D] leading-relaxed">${escapeHtml(item.description)}</p>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-[#F2E8F1] text-xs text-[#6B546D]">
+              <span>${escapeHtml(item.style)}</span><span class="text-[#9E6B9B] font-bold">${escapeHtml(item.detail)}</span>
+            </div>
+          </article>`).join('');
+      }
+
+      setText('gallery-eyebrow', gallery.eyebrow);
+      setText('gallery-title', gallery.title);
+      setText('gallery-instagram-cta', gallery.instagram_cta);
+      const galleryRoot = document.getElementById('gallery-grid');
+      if (galleryRoot && Array.isArray(data.gallery_images)) {
+        galleryRoot.innerHTML = data.gallery_images.map(item => `
+          <article class="group overflow-hidden rounded-[28px] border border-[#E8DBE6] bg-[#FAF7F9] shadow-card-lux transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-mauve">
+            <img class="w-full h-72 object-cover" src="${escapeHtml(safeContentUrl(item.image, ''))}" alt="${escapeHtml(item.alt || item.title)}" />
+            <div class="p-4 flex items-center justify-between gap-3"><span class="text-sm font-bold text-[#231624]">${escapeHtml(item.title)}</span><span class="material-symbols-outlined text-[#9E6B9B] text-[18px]">favorite</span></div>
+          </article>`).join('');
+      }
+
+      setText('services-eyebrow', servicesSection.eyebrow);
+      setText('services-title', servicesSection.title);
+      setText('services-description', servicesSection.description);
+      const servicesRoot = document.getElementById('services-grid');
+      if (servicesRoot && Array.isArray(data.services)) {
+        servicesRoot.innerHTML = data.services.map((service, index) => {
+          const featured = Boolean(service.featured);
+          const features = Array.isArray(service.features) ? service.features.map(feature => (
+            feature.startsWith('مدة الجلسة:') && service.duration
+              ? feature.replace(/\d+\s*دقيقة/, service.duration)
+              : feature
+          )) : [];
+          const keyword = ['classic', 'hybrid', 'volume', 'lift'][index] || 'classic';
+          return `<article class="${featured ? 'bg-white rounded-3xl p-6 border-2 border-[#D8B4E2] shadow-soft-mauve flex flex-col justify-between relative transform lg:-translate-y-2' : 'bg-white rounded-3xl p-6 border border-[#E8DBE6] shadow-card-lux hover:shadow-soft-mauve transition-all duration-300 flex flex-col justify-between'}">
+            ${featured ? `<div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#A3889B] text-white px-4 py-1 rounded-full text-xs font-bold tracking-wider shadow-md">${escapeHtml(servicesSection.featured_label)}</div>` : ''}
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center justify-between">
+                <span class="w-10 h-10 rounded-2xl ${featured ? 'bg-[#A3889B] text-white' : 'bg-[#F4EBF6] text-[#9E6B9B]'} flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">${escapeHtml(service.icon || 'auto_awesome')}</span></span>
+                <span class="text-xs ${featured ? 'text-[#9E6B9B] bg-[#F4EBF6]' : 'text-[#6B546D] bg-[#FAF7F9] border border-[#E8DBE6]'} px-3 py-1 rounded-full font-medium">${escapeHtml(service.tag || '')}</span>
+              </div>
+              <div><h3 class="text-xl font-bold text-[#231624]">${escapeHtml(service.name)}</h3><p class="text-xs ${featured ? 'text-[#9E6B9B]' : 'text-[#6B546D]'} mt-1">${escapeHtml(service.description)}</p></div>
+              <div class="flex items-baseline gap-1.5 pt-2"><span class="text-3xl font-extrabold text-[#231624]">${escapeHtml(service.price)}</span></div>
+              <div class="text-xs text-[#6B546D] bg-[#FAF7F9] border border-[#F2E8F1] px-3 py-2 rounded-2xl flex items-center justify-between"><span>${escapeHtml(servicesSection.refill_label)}</span><span class="font-bold text-[#231624]">${escapeHtml(service.refill || '')}</span></div>
+              <div class="space-y-2.5 pt-4 text-xs text-[#231624] leading-relaxed">${features.map(text => `<div class="flex items-start gap-2"><span class="material-symbols-outlined text-[17px] text-[#A3889B] shrink-0 mt-0.5">check_circle</span><span>${escapeHtml(text)}</span></div>`).join('')}</div>
+            </div>
+            <a class="mt-8 w-full py-3.5 rounded-full ${featured ? 'bg-[#A3889B] text-white' : 'bg-[#F4EBF6] text-[#9E6B9B]'} hover:bg-[#8F7287] hover:text-white border border-[#E8DBE6] font-semibold text-xs text-center transition-all duration-300" href="#booking" data-service-index="${index}" data-service-key="${keyword}">${escapeHtml(servicesSection.booking_cta)}</a>
+          </article>`;
+        }).join('');
+        servicesRoot.querySelectorAll('[data-service-index]').forEach(button => {
+          button.addEventListener('click', () => selectBookingService(Number(button.dataset.serviceIndex)));
+        });
+      }
+
+      const preSectionRoot = document.getElementById('pre-session-title');
+      setText('pre-session-eyebrow', preSection.eyebrow);
+      setText('pre-session-title', preSection.title);
+      setText('pre-session-description', preSection.description);
+      const preRoot = document.getElementById('pre-session-grid');
+      if (preRoot && Array.isArray(data.pre_session)) {
+        preRoot.innerHTML = data.pre_session.map(item => `
+          <article class="bg-white rounded-3xl p-6 border border-[#E8DBE6] shadow-card-lux hover:shadow-soft-mauve transition-all flex flex-col items-center text-center gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-[#F4EBF6] border border-[#E8DBE6] text-[#9E6B9B] flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-[28px]">${escapeHtml(item.icon || 'check_circle')}</span></div>
+            <h3 class="text-base font-bold text-[#231624]">${escapeHtml(item.title)}</h3>
+            <p class="text-xs text-[#6B546D] leading-relaxed">${escapeHtml(item.description)}</p>
+          </article>`).join('');
+      }
+
+      setText('aftercare-eyebrow', aftercare.eyebrow);
+      setText('aftercare-title', aftercare.title);
+      setText('aftercare-share-button', aftercare.share_button);
+      setText('aftercare-title', aftercare.title);
+      setText('retouches-eyebrow', aftercare.calculator_heading);
+      setText('retouches-title', retouches.title);
+      setText('retouches-date-label', retouches.date_label);
+      setText('retouches-pack-label', retouches.pack_type_label);
+      setText('retouches-calculate-button', retouches.calculate_button);
+      setText('retouches-whatsapp-button', retouches.whatsapp_button);
+      const packSelect = document.getElementById('refill-pack-type');
+      if (packSelect && Array.isArray(retouches.pack_types)) {
+        packSelect.innerHTML = retouches.pack_types.map(type => `<option value="${escapeHtml(type)}">${escapeHtml(type)}</option>`).join('');
+      }
+      const aftercareRoot = document.getElementById('aftercare-grid');
+      if (aftercareRoot && Array.isArray(data.aftercare_checklist)) {
+        aftercareRoot.innerHTML = data.aftercare_checklist.map(item => `
+          <button class="aftercare-card group rounded-[24px] border border-[#E8DBE6] bg-[#FAF7F9] p-4 text-right transition-all duration-300 hover:-translate-y-1 hover:shadow-md" data-title="${escapeHtml(item.title)}" data-details="${escapeHtml(item.description)}">
+            <div class="flex items-center justify-between mb-3"><span class="text-[11px] font-bold text-[#9E6B9B] bg-white px-2.5 py-1 rounded-full border border-[#E8DBE6]">${escapeHtml(item.title)}</span><span class="material-symbols-outlined text-[#A3889B] text-[22px]">${escapeHtml(item.icon || 'check_circle')}</span></div>
+            <p class="text-sm text-[#231624] leading-relaxed">${escapeHtml(item.description)}</p>
+          </button>`).join('');
+        aftercareRoot.querySelectorAll('.aftercare-card').forEach(card => {
+          card.addEventListener('click', () => {
+            card.classList.toggle('border-[#A3889B]');
+            card.classList.toggle('bg-[#F4EBF6]');
+            card.classList.toggle('shadow-sm');
+          });
+        });
+      }
+
+      setText('faq-eyebrow', faq.eyebrow);
+      setText('faq-title', faq.title);
+      setText('faq-description', faq.description);
+      const faqRoot = document.getElementById('faq-list');
+      if (faqRoot && Array.isArray(data.faqs)) {
+        faqRoot.innerHTML = data.faqs.map(item => `
+          <article class="faq-item bg-white rounded-2xl p-5 border border-[#E8DBE6] shadow-sm transition-all duration-200">
+            <button class="faq-toggle w-full flex items-center justify-between text-right gap-4" type="button" aria-expanded="false">
+              <span class="text-sm sm:text-base font-bold text-[#231624]">${escapeHtml(item.question)}</span>
+              <span class="faq-icon material-symbols-outlined text-[#9E6B9B] transform transition-transform duration-300">expand_more</span>
+            </button>
+            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300"><p class="text-xs sm:text-sm text-[#6B546D] pt-3 leading-relaxed border-t border-[#F2E8F1] mt-3">${escapeHtml(item.answer)}</p></div>
+          </article>`).join('');
+        faqRoot.querySelectorAll('.faq-toggle').forEach(toggle => {
+          toggle.addEventListener('click', () => {
+            const content = toggle.nextElementSibling;
+            const icon = toggle.querySelector('.faq-icon');
+            const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+            faqRoot.querySelectorAll('.faq-content').forEach(item => item.style.maxHeight = '0px');
+            faqRoot.querySelectorAll('.faq-icon').forEach(item => item.style.transform = 'rotate(0deg)');
+            faqRoot.querySelectorAll('.faq-toggle').forEach(item => item.setAttribute('aria-expanded', 'false'));
+            if (!isOpen) {
+              content.style.maxHeight = `${content.scrollHeight}px`;
+              icon.style.transform = 'rotate(180deg)';
+              toggle.setAttribute('aria-expanded', 'true');
+            }
+          });
+        });
+      }
+
+      setText('products-eyebrow', products.eyebrow);
+      setText('products-title', products.title);
+      setText('products-description', products.description);
+      const productsRoot = document.getElementById('products-grid');
+      if (productsRoot && Array.isArray(data.care_products)) {
+        productsRoot.innerHTML = data.care_products.map((product, index) => {
+          const image = product.image ? `<img class="mb-4 h-28 w-full rounded-2xl object-cover" src="${escapeHtml(safeContentUrl(product.image, ''))}" alt="${escapeHtml(product.name)}" />` : `<div class="w-14 h-14 rounded-2xl bg-[#F4EBF6] flex items-center justify-center text-[#9E6B9B] mb-4"><span class="material-symbols-outlined text-[28px]">${escapeHtml(product.icon || 'spa')}</span></div>`;
+          const message = (products.order_message_template || 'مرحباً تيما, بدي أطلب منتج {name}').replace('{name}', product.name);
+          const bullets = String(product.description || '').split('\n').filter(Boolean);
+          return `<article class="bg-white border border-[#E8DBE6] rounded-[28px] p-5 shadow-soft-mauve flex flex-col h-full">
+            ${image}
+            <div class="mb-4"><p class="text-[11px] font-bold text-[#9E6B9B] uppercase tracking-[0.16em]">${escapeHtml(product.category)}</p><h3 class="text-xl font-extrabold text-[#231624] mt-1">${escapeHtml(product.name)}</h3></div>
+            <ul class="space-y-2 text-sm text-[#6B546D] leading-relaxed mb-5">${bullets.map(bullet => `<li>${escapeHtml(bullet.replace(/^•\\s*/, ''))}</li>`).join('')}</ul>
+            <div class="mt-auto flex items-center justify-between gap-3 pt-4 border-t border-[#F2E8F1]"><span class="text-xl font-extrabold text-[#231624]">${escapeHtml(product.price)}</span><a href="${escapeHtml(whatsappLink(settings, message))}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-[#A3889B] hover:bg-[#8F7287] text-white text-xs font-bold shadow-md shadow-[#A3889B]/20 transition-all duration-300">${escapeHtml(products.order_button)}</a></div>
+          </article>`;
+        }).join('');
+      }
+
+      setText('gift-eyebrow', gift.eyebrow);
+      setText('gift-title', gift.title);
+      setText('gift-description', gift.description);
+      setText('gift-cta', gift.cta);
+      setText('gift-card-label', gift.card_label);
+      setText('gift-card-eyebrow', gift.card_eyebrow);
+      setText('gift-card-title', gift.card_title);
+      setText('gift-card-caption', gift.card_caption);
+      setText('gift-value-label', gift.value_label);
+      setText('gift-value', gift.value);
+      (gift.benefits || []).forEach((text, index) => setText(`gift-benefit-${index}`, text));
+      document.querySelectorAll('[data-gift-benefit]').forEach((element, index) => {
+        if (gift.benefits && gift.benefits[index] !== undefined) element.textContent = gift.benefits[index];
+      });
+      const giftLink = document.querySelector('#gift-cta')?.closest('a');
+      if (giftLink) giftLink.href = whatsappLink(settings, gift.whatsapp_message);
+
+      const reviewTexts = reviews.reviews || [];
+      setText('reviews-eyebrow', reviews.eyebrow);
+      setText('reviews-title', reviews.title);
+      setText('reviews-rating', reviews.rating);
+      setText('reviews-stars-rating', starsMarkup(reviews.rating));
+      setText('open-review-modal', reviews.add_review_button);
+      setText('review-modal-title', reviews.modal_title);
+      setText('review-submit-button', reviews.submit_button);
+      setText('review-name-label', reviews.name_label);
+      setText('review-text-label', reviews.review_label);
+      setText('review-stars-label', reviews.stars_label);
+      setText('close-review-modal', '×');
+      const reviewClose = document.getElementById('close-review-modal');
+      if (reviewClose) reviewClose.setAttribute('aria-label', reviews.close_label);
+      const reviewsRoot = document.getElementById('reviews-grid');
+      if (reviewsRoot) {
+        reviewsRoot.innerHTML = reviewTexts.filter(review => review.enabled).map(review => `
+          <article class="bg-white border border-[#E8DBE6] rounded-[28px] p-6 shadow-soft-mauve flex flex-col h-full">
+            <div class="flex items-center justify-between mb-5"><div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-full bg-[#F4EBF6] text-[#9E6B9B] flex items-center justify-center font-extrabold">${escapeHtml(Array.from(review.name || '?')[0])}</div>
+              <div><h3 class="text-base font-bold text-[#231624]">${escapeHtml(review.name)}</h3><p class="text-[11px] text-[#6B546D]">${escapeHtml(review.label || '')}</p></div>
+            </div><span class="text-[#F4B942] text-sm" aria-label="${Number(review.stars)} من 5">${starsMarkup(review.stars)}</span></div>
+            <p class="text-sm leading-relaxed text-[#6B546D]">"${escapeHtml(review.text)}"</p>
+          </article>`).join('');
+      }
+
+      const navigation = copy.navigation;
+      document.querySelectorAll('header nav a').forEach((link, index) => {
+        link.textContent = [navigation.services, navigation.gallery, navigation.care, navigation.booking][index] || link.textContent;
+      });
+      const headerBooking = document.querySelector('[data-cms="navigation.header_booking"]');
+      if (headerBooking) headerBooking.textContent = navigation.header_booking;
+      const whatsappFloat = document.getElementById('floating-whatsapp-link');
+      if (whatsappFloat) whatsappFloat.setAttribute('aria-label', copy.whatsapp_accessible_label);
+      setText('booking-eyebrow', booking.eyebrow);
+      setText('booking-title', booking.title);
+      setText('booking-description', booking.description);
+      (booking.steps || []).forEach((value, index) => setText(`booking-step-${index + 1}`, value));
+      setText('booking-service-label', booking.service_label);
+      setText('booking-date-label', booking.date_label);
+      setText('booking-custom-date-label', booking.custom_date_label);
+      setText('booking-date-note', booking.date_note);
+      setText('booking-client-label', booking.client_label);
+      setText('booking-name-label', booking.name_label);
+      setText('booking-phone-label', booking.phone_label);
+      setText('booking-notes-label', booking.notes_label);
+      setText('booking-warning-title', booking.warning_title);
+      setText('booking-warning-text', booking.warning_text);
+      setText('booking-submit-text', booking.submit_button);
+      setText('booking-trust-1', booking.trust_badges[0]);
+      setText('booking-trust-2', booking.trust_badges[1]);
+      setText('booking-trust-3', booking.trust_badges[2]);
+      document.querySelectorAll('[data-booking-consent]').forEach((element, index) => {
+        element.textContent = booking.consents[index] || '';
+      });
+      const bookingName = document.getElementById('client-name');
+      const bookingPhone = document.getElementById('client-phone');
+      const bookingNotes = document.getElementById('client-notes');
+      const bookingDate = document.getElementById('booking-custom-date');
+      if (bookingName) bookingName.placeholder = booking.name_placeholder;
+      if (bookingPhone) bookingPhone.placeholder = booking.phone_placeholder;
+      if (bookingNotes) bookingNotes.placeholder = booking.notes_placeholder;
+      if (bookingDate) {
+        bookingDate.placeholder = booking.custom_date_placeholder;
+        bookingDate.setAttribute('aria-label', booking.custom_date_label);
+      }
+      const bookingOptions = document.getElementById('service-options');
+      if (bookingOptions && Array.isArray(data.services)) {
+        bookingOptions.innerHTML = data.services.map((service, index) => `
+          <label class="service-pill flex items-center justify-between p-4 rounded-2xl bg-[#FAF7F9] border border-[#E8DBE6] cursor-pointer hover:border-[#D8B4E2] transition-all">
+            <div class="flex items-center gap-3"><input ${index === 0 ? 'checked' : ''} class="accent-[#A3889B] w-4 h-4" name="selected_service" type="radio" value="${escapeHtml(`${service.name} (${service.price})`)}" data-booking-service-index="${index}" />
+              <span class="text-xs sm:text-sm font-semibold text-[#231624]">${escapeHtml(service.name)}</span></div>
+            <span class="text-xs font-bold text-[#9E6B9B]">${escapeHtml(service.price)}</span>
+          </label>`).join('');
+      }
+      const dateButtons = document.getElementById('date-buttons');
+      if (dateButtons && Array.isArray(booking.days)) {
+        dateButtons.innerHTML = booking.days.map((day, index) => `
+          <button class="date-chip h-12 rounded-2xl ${index === 0 ? 'bg-[#A3889B] text-white shadow-md shadow-[#A3889B]/20' : 'bg-[#FAF7F9] hover:bg-[#F4EBF6] text-[#231624] border border-[#E8DBE6]'} text-xs font-${index === 0 ? 'bold' : 'medium'} transition-all flex items-center justify-center" data-date="${escapeHtml(day)}" type="button"><span>${escapeHtml(day)}</span></button>`).join('');
+        chosenDate = booking.days[0] || '';
+        dateButtons.querySelectorAll('.date-chip').forEach(button => {
+          button.addEventListener('click', () => {
+            if (customDateInput) customDateInput.value = '';
+            setSelectedDateLabel(button.dataset.date);
+          });
+        });
+      }
+      const floatLink = document.getElementById('floating-whatsapp-link');
+      if (floatLink) floatLink.href = whatsappLink(settings, copy.floating_whatsapp_message);
+
+      const modal = document.getElementById('review-modal');
+      const openModal = document.getElementById('open-review-modal');
+      const closeModal = document.getElementById('close-review-modal');
+      const closeReviewModal = () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      };
+      if (modal && openModal && closeModal) {
+        openModal.addEventListener('click', () => {
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+          modal.querySelector('input[name="name"]').focus();
+        });
+        closeModal.addEventListener('click', closeReviewModal);
+        modal.addEventListener('click', event => {
+          if (event.target === modal) closeReviewModal();
+        });
+        document.addEventListener('keydown', event => {
+          if (event.key === 'Escape' && !modal.classList.contains('hidden')) closeReviewModal();
+        });
+      }
+      const reviewForm = document.querySelector('form[name="customer-review"]');
+      if (reviewForm) {
+        reviewForm.querySelector('[name="name"]').setAttribute('aria-label', reviews.name_label);
+        reviewForm.querySelector('[name="review"]').setAttribute('aria-label', reviews.review_label);
+        reviewForm.querySelector('[name="stars"]').setAttribute('aria-label', reviews.stars_label);
+      }
+    }
+
+    function selectBookingService(index) {
+      const selected = document.querySelector(`input[name="selected_service"][data-booking-service-index="${index}"]`);
+      if (selected) selected.checked = true;
+      const bookingSection = document.getElementById('booking');
+      if (bookingSection) bookingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    async function loadSiteData() {
+      const errorBox = document.getElementById('content-load-error');
+      try {
+        const response = await fetch('./content/site_data.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error(`تعذر تحميل المحتوى (${response.status})`);
+        const data = await response.json();
+        if (!data || !data.general_settings || !Array.isArray(data.services)) {
+          throw new Error('ملف محتوى الموقع لا يحتوي على بنية صالحة.');
+        }
+        activeSiteData = data;
+        renderPageCopy(data);
+      } catch (error) {
+        console.error('تعذر تحميل بيانات الموقع:', error);
+        if (errorBox) {
+          errorBox.textContent = 'تعذر تحميل محتوى الموقع الديناميكي. تحقق من اتصالك ومن ملف content/site_data.json.';
+          errorBox.classList.remove('hidden');
+        }
+      }
+    }
 
     // Date Chips
     document.querySelectorAll('.date-chip').forEach(btn => {
@@ -2147,24 +2658,25 @@
       const allConsentsChecked = Array.from(consentCheckboxes).every((checkbox) => checkbox.checked);
 
       if (!name) {
-        showBookingStatus('يرجى إدخال الاسم قبل تأكيد الحجز.', true);
+        showBookingStatus(activeSiteData?.booking_section?.validation_name || 'يرجى إدخال الاسم قبل تأكيد الحجز.', true);
         if (nameInput) nameInput.focus();
         return;
       }
 
       if (!serviceName) {
-        showBookingStatus('يرجى اختيار الخدمة المطلوبة قبل تأكيد الحجز.', true);
+        showBookingStatus(activeSiteData?.booking_section?.validation_service || 'يرجى اختيار الخدمة المطلوبة قبل تأكيد الحجز.', true);
         const serviceArea = document.getElementById('service-options');
         if (serviceArea) serviceArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
 
       if (!allConsentsChecked) {
-        showBookingStatus('يجب الموافقة على جميع الشروط الصحية قبل تأكيد الحجز.', true);
+        showBookingStatus(activeSiteData?.booking_section?.validation_consent || 'يجب الموافقة على جميع الشروط الصحية قبل تأكيد الحجز.', true);
         return;
       }
 
-      const formattedNotes = notes || 'لا توجد ملاحظات/حساسية';
+      const bookingCopy = activeSiteData?.booking_section || {};
+      const formattedNotes = notes || bookingCopy.whatsapp_no_notes || 'لا توجد ملاحظات/حساسية';
       const dateLabel = customDateInput && customDateInput.value ? new Intl.DateTimeFormat('ar-EG', {
         day: 'numeric',
         month: 'numeric',
@@ -2172,16 +2684,19 @@
       }).format(new Date(`${customDateInput.value}T00:00:00`)) : chosenDate;
 
       const messageLines = [
-        'مرحباً تيما',
-        'بدي أحجز جلسة رموش:',
+        bookingCopy.whatsapp_greeting || 'مرحباً تيما',
+        bookingCopy.whatsapp_request || 'بدي أحجز جلسة رموش:',
         '',
-        `• الاسم: ${name}`,
-        `• نوع الجلسة: ${serviceName}`,
-        `• اليوم المختار: ${dateLabel}`
+        `• ${bookingCopy.whatsapp_name_label || 'الاسم'}: ${name}`,
+        `• ${bookingCopy.whatsapp_service_label || 'نوع الجلسة'}: ${serviceName}`,
+        `• ${bookingCopy.whatsapp_date_label || 'اليوم المختار'}: ${dateLabel}`
       ];
 
-      const whatsappUrl = `https://wa.me/963996932294?text=${encodeURIComponent(messageLines.join('%0A'))}`;
-      window.open(whatsappUrl, '_blank');
+      const settings = activeSiteData?.general_settings;
+      const whatsappUrl = settings
+        ? whatsappLink(settings, messageLines.join('\n'))
+        : `https://wa.me/963996932294?text=${encodeURIComponent(messageLines.join('\n'))}`;
+      window.open(whatsappUrl, '_blank', 'noopener');
 
       if (nameInput) nameInput.value = '';
       if (phoneInput) phoneInput.value = '';
@@ -2202,7 +2717,7 @@
       if (customDateInput) customDateInput.value = '';
       chosenDate = 'السبت';
 
-      showBookingStatus('تم تجهيز طلب الحجز بنجاح، وسيتم توجيهك إلى واتساب لإرسال التفاصيل مباشرة.');
+      showBookingStatus(activeSiteData?.page_copy?.booking_success || 'تم تجهيز طلب الحجز بنجاح، وسيتم توجيهك إلى واتساب لإرسال التفاصيل مباشرة.');
     };
 
     updateBookingSubmitState();

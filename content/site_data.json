@@ -1,0 +1,421 @@
+{
+  "general_settings": {
+    "salon_name": "Tyma Lashes",
+    "salon_subtitle": "صالون تخصصي للرموش",
+    "logo": "",
+    "whatsapp_number": "0996 932 294",
+    "whatsapp_link": "https://wa.me/963996932294",
+    "instagram_handle": "@tyma_lashartist_",
+    "instagram_url": "https://www.instagram.com/tyma_lashartist_",
+    "location_url": "",
+    "location_address": "بانياس • العنازة • اللاذقية",
+    "facebook_name": "Tyma Lashes",
+    "facebook_url": "https://www.facebook.com/share/1cwxPdEtws/?mibextid=wwXIfr",
+    "footer_description": "صالون تخصصي لتركيب ورفع الرموش بأعلى معايير الحرفية والجمال الطبيعي.",
+    "appointment_note": "الجلسات بتنسيق وحجز مسبق"
+  },
+  "hero_section": {
+    "eyebrow": "صالون Tyma Lashes التخصصي",
+    "headline": "سحر العيون بلمسة احترافية تدوم لأسابيع",
+    "subtitle": "نمنح عينيكِ إطلالة أنثوية حالمة تجمع بين الأمان الفائق، رموش حريرية فائقة الخفة، وتقنية عزل يدوي بدقة متناهية لتنسجم مع انحناءات رموشك الطبيعية وتحافظ على سلامتها.",
+    "primary_cta_text": "احجزي موعدك الآن",
+    "primary_cta_url": "#booking",
+    "secondary_cta_text": "استكشفي الخدمات والأسعار ↓",
+    "secondary_cta_url": "#services-pricing",
+    "cover_image": "https://lh3.googleusercontent.com/aida-public/AB6AXuARGB9JUai61ORNWH0ECW35pqCkOXSQifH3HtLjEXsxvgC3fYSuJNpgKmtHzEVjIMBrmfbe9vywfuIjsODSvLs6uAKTbcRnrs7hPpumXpIWBi1uUy8s9woRXv9X7T3mOTHg6BAP_iu8FuMOTXJnYAWP8BImpB-M1R80pvHK_BNHAiSXD9El5_PNpHHXjM4hXvdSu0rmgqjB6ZGYZDOseheia-wlkX6wv474fPXbLfkCc7s5ZJhm-CWb",
+    "cover_alt": "تركيب رموش فاخرة في استوديو تيما",
+    "badge_title": "عزل احترافي آمن",
+    "badge_description": "بدون شد أو تكتل",
+    "cover_caption": "خفيفة كالحرير على العين"
+  },
+  "stats_items": [
+    { "number": "4.9", "text": "تقييم العميلات" },
+    { "number": "+1,500", "text": "جلسة متألقة" },
+    { "number": "100%", "text": "عزل يدوي دقيق" }
+  ],
+  "before_after_section": {
+    "eyebrow": "تحول حقيقي ملموس",
+    "title": "نتائج حقيقية.. شاهدي الفرق",
+    "description": "اسحبي المؤشر لاكتشاف الفرق قبل وبعد التركيب الاحترافي ودقة التنسيق على عيون عميلاتنا.",
+    "before_image": "https://lh3.googleusercontent.com/aida-public/AB6AXuARGB9JUai61ORNWH0ECW35pqCkOXSQifH3HtLjEXsxvgC3fYSuJNpgKmtHzEVjIMBrmfbe9vywfuIjsODSvLs6uAKTbcRnrs7hPpumXpIWBi1uUy8s9woRXv9X7T3mOTHg6BAP_iu8FuMOTXJnYAWP8BImpB-M1R80pvHK_BNHAiSXD9El5_PNpHHXjM4hXvdSu0rmgqjB6ZGYZDOseheia-wlkX6wv474fPXbLfkCc7s5ZJhm-CWb",
+    "after_image": "https://lh3.googleusercontent.com/aida-public/AB6AXuARGB9JUai61ORNWH0ECW35pqCkOXSQifH3HtLjEXsxvgC3fYSuJNpgKmtHzEVjIMBrmfbe9vywfuIjsODSvLs6uAKTbcRnrs7hPpumXpIWBi1uUy8s9woRXv9X7T3mOTHg6BAP_iu8FuMOTXJnYAWP8BImpB-M1R80pvHK_BNHAiSXD9El5_PNpHHXjM4hXvdSu0rmgqjB6ZGYZDOseheia-wlkX6wv474fPXbLfkCc7s5ZJhm-CWb",
+    "before_label": "قبل التركيب",
+    "after_label": "بعد التركيب",
+    "comparison_hint": "اسحبي يميناً ويساراً للمقارنة التفاعلية",
+    "comparison_caption": "جلسة: تصميم طبيعي ومرن",
+    "filters": [
+      { "label": "الكل", "value": "all" },
+      { "label": "كلاسيك ناعم", "value": "classic" },
+      { "label": "فوليوم روسي", "value": "volume" },
+      { "label": "رفع وتدرج", "value": "lift" }
+    ],
+    "cards": [
+      {
+        "category": "classic",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuByskBBhkwic1ty7c4WugruuIQ3mSUCALJbLPAmwkSd5YPEN34_zKFr2s8KSOHh4EaJKqxk3STTKhWg_Hmc4WKl7BVGmOSEsK-xzrfelq-vnfjsD-JrUGy1sAx__bRY7_HpbBylMzcOsirfKRwhzvTtvvPQ1DyuJggj6I9Bfq4BZ7F8Y7CVWFyQmVdE4NkKn89aAx6hqibnCPY12ubp2vHiFXSgVaCIc8RvtpKcH0_b8tRlH0aLPshS",
+        "alt": "إطلالة كلاسيك ناعمة",
+        "title": "إطلالة الدوام الهادئة",
+        "description": "رمشة واحدة ناعمة على كل رمش تعطي مظهراً مشرقاً وطبيعياً للغاية.",
+        "style": "مظهر طبيعي",
+        "detail": "الطول: 8-11mm"
+      },
+      {
+        "category": "volume",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuARGB9JUai61ORNWH0ECW35pqCkOXSQifH3HtLjEXsxvgC3fYSuJNpgKmtHzEVjIMBrmfbe9vywfuIjsODSvLs6uAKTbcRnrs7hPpumXpIWBi1uUy8s9woRXv9X7T3mOTHg6BAP_iu8FuMOTXJnYAWP8BImpB-M1R80pvHK_BNHAiSXD9El5_PNpHHXjM4hXvdSu0rmgqjB6ZGYZDOseheia-wlkX6wv474fPXbLfkCc7s5ZJhm-CWb",
+        "alt": "فوليوم روسي كثيف",
+        "title": "العيون القطة الساحرة",
+        "description": "سحب طرف العين الخارجي لإعطاء وسع ساحر وعمق أنثوي مميز.",
+        "style": "مظهر كثيف",
+        "detail": "الطول: 9-14mm"
+      },
+      {
+        "category": "lift",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAtUjeALG7uNbceqUG1hU7-RiNEZcITVyiarF3ScHgORRqEIj2ABp09aj5hQGp0OjpJcZO_l32QvPbyP1D8oSTPnlvYehbmia4qkOauNKUIaKIhoz3RyEIsOQExXpJLrkBB9xqsSJXOZNeHPYAlE0uhN8QaKA4X5EYh9_gGP8-W3Ax-LB9CgBGSxuxA546Jv9XEzg_RUT8RYJmYNDxrBazm05N-qKrOxbZM2uBF-cAcCTTwBgrsb5nX",
+        "alt": "رفع كيراتين مع صبغة",
+        "title": "رفع كيراتين مع صبغة",
+        "description": "رفع للرموش الطبيعية 100% مع تغذية الكيراتين بدون أي شعر صناعي.",
+        "style": "رفع وتغذية",
+        "detail": "حتى 8 أسابيع"
+      }
+    ]
+  },
+  "gallery_section": {
+    "eyebrow": "معرض أعمالنا",
+    "title": "معرض أعمالنا | من لمسات تيما",
+    "instagram_cta": "شاهدي المزيد على حسابنا في إنستغرام"
+  },
+  "gallery_images": [
+    {
+      "title": "رموش طبيعية",
+      "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80",
+      "alt": "عمل رموش طبيعي"
+    },
+    {
+      "title": "كثافة أنثوية",
+      "image": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=80",
+      "alt": "رموش كثيفة"
+    },
+    {
+      "title": "سحبة ناعمة",
+      "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80",
+      "alt": "سحبة ناعمة"
+    },
+    {
+      "title": "جلسة احترافية",
+      "image": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80",
+      "alt": "جلسة احترافية"
+    }
+  ],
+  "services_section": {
+    "eyebrow": "باقة الجمال المتكاملة",
+    "title": "قائمة الخدمات والأسعار",
+    "description": "خدمات راقية مصممة بدقة لتلائم رسمة عينك ونمط حياتك مع استشارة مخصصة قبل كل جلسة.",
+    "refill_label": "سعر الرتوش (رتوش):",
+    "featured_label": "الأكثر طلباً ★",
+    "booking_cta": "احجزي هذه الباقة"
+  },
+  "services": [
+    {
+      "name": "كلاسيك ناعم",
+      "tag": "كلاسيك 1:1",
+      "price": "350",
+      "description": "طبيعي وأنيق للمظهر اليومي",
+      "duration": "120 دقيقة",
+      "refill": "180",
+      "icon": "visibility",
+      "featured": false,
+      "features": [
+        "رمشة واحدة فائقة النعومة على كل رمش طبيعي.",
+        "مدة الجلسة: 120 دقيقة بدقة متناهية.",
+        "ثبات يدوم: من 3 إلى 4 أسابيع."
+      ]
+    },
+    {
+      "name": "هايبرد عصري",
+      "tag": "هايبرد / Wispy",
+      "price": "450",
+      "description": "تأثير الرموش المتطايرة Kim K",
+      "duration": "130 دقيقة",
+      "refill": "220",
+      "icon": "flare",
+      "featured": false,
+      "features": [
+        "دمج جذاب بين الكلاسيك والمراوح الخفيفة.",
+        "مدة الجلسة: 130 دقيقة عناية مركزة.",
+        "ثبات يدوم: من 4 إلى 5 أسابيع متألقة."
+      ]
+    },
+    {
+      "name": "فوليوم روسي كثيف",
+      "tag": "Russian فوليوم",
+      "price": "550",
+      "description": "كثافة ساحرة وخفيفة على الرمش",
+      "duration": "150 دقيقة",
+      "refill": "260",
+      "icon": "auto_awesome",
+      "featured": true,
+      "features": [
+        "مراوح يدوية 3D-6D متجانسة وخفيفة كالريشة.",
+        "مدة الجلسة: 150 دقيقة عناية فائقة.",
+        "ثبات يدوم: من 4 إلى 6 أسابيع بكثافة مريحة."
+      ]
+    },
+    {
+      "name": "لفتنغ ورفع مع صبغ",
+      "tag": "Lift & Tint",
+      "price": "290",
+      "description": "تغذية ورفع طبيعي بدون تركيب",
+      "duration": "60 دقيقة",
+      "refill": "مشمول مجاناً",
+      "icon": "spa",
+      "featured": false,
+      "features": [
+        "رفع وتقويس للرمش الطبيعي يغنيكِ عن المسكارا.",
+        "مدة الجلسة: 60 دقيقة فقط وسريعة.",
+        "ثبات يدوم: حتى 8 أسابيع كاملة."
+      ]
+    }
+  ],
+  "pre_session_section": {
+    "eyebrow": "لضمان أفضل ثبات",
+    "title": "تعليمات ما قبل الجلسة",
+    "description": "خطوات بسيطة تضمن لكِ جلسة هادئة ومريحة ونتيجة تدوم لأطول فترة ممكنة."
+  },
+  "pre_session": [
+    {
+      "title": "القدوم بدون مكياج نهائياً",
+      "description": "تجنبي وضع أي مسكارا مضادة للماء أو كحل أو كريمات زيتية حول العين قبل موعد الجلسة لضمان نظافة جفنك.",
+      "icon": "brush"
+    },
+    {
+      "title": "نزع العدسات اللاصقة",
+      "description": "يُفضل نزع العدسات اللاصقة الطبية أو التجميلية قبل البدء تجنباً لجفاف العين ولراحتك التامة أثناء الجلسة.",
+      "icon": "contact_page"
+    },
+    {
+      "title": "إخبار الخبيرة بالحساسية",
+      "description": "يرجى إبلاغ الأخصائية إذا كنتِ تعانين من أي حساسية سابقة لمواد اللصق لعمل اختبار مسبق وآمن قبل البدء.",
+      "icon": "health_and_safety"
+    },
+    {
+      "title": "الالتزام بالموعد (5 دقائق قبل)",
+      "description": "الوصول قبل الموعد بـ 5 دقائق يتيح لكِ فرصة الاسترخاء ومناقشة تفاصيل الرسمة والأطوال المفضلة مع الخبيرة.",
+      "icon": "alarm_on"
+    }
+  ],
+  "aftercare_section": {
+    "eyebrow": "العناية اللاحقة",
+    "title": "شيك ليست العناية اللاحقة",
+    "share_button": "حفظ / مشاركة",
+    "calculator_heading": "حاسبة موعد الرتوش",
+    "checklist_title": "دليل العناية بعد تركيب الرموش"
+  },
+  "aftercare_checklist": [
+    {
+      "title": "أول 24-48 ساعة",
+      "description": "الابتعاد التام عن الماء، البخار، والساونا.",
+      "icon": "water_drop"
+    },
+    {
+      "title": "العناية اليومية",
+      "description": "تمشيط الرموش صباحاً بفرشاة نظيفة، واستخدام غسول مائي خالي من الزيوت (Oil-Free).",
+      "icon": "brush"
+    },
+    {
+      "title": "ممنوعات",
+      "description": "فرك العين باليد، النوم على الوجه مباشرة، أو استخدام المسكارا المقاومة للماء.",
+      "icon": "block"
+    }
+  ],
+  "retouches_calculator_text": {
+    "title": "حساب موعد الرتوش القادم",
+    "date_label": "تاريخ تركيب الرموش",
+    "pack_type_label": "نوع الطقم",
+    "pack_types": ["كلاسيك", "فوليوم", "هايبرد"],
+    "calculate_button": "احسبي موعد الرتوش القادم",
+    "whatsapp_button": "احجزي موعد الرتوش عبر الواتساب",
+    "missing_date_message": "يرجى اختيار تاريخ تركيب الرموش أولاً.",
+    "result_template": "موعد الرتوش المثالي لرموشك هو بين {from} و {to} للحفاظ على مظهرها وكثافتها",
+    "whatsapp_message": "مرحباً تيما، حابة أحجز موعد رتوش لرموشي"
+  },
+  "booking_section": {
+    "eyebrow": "خطوة واحدة نحو التألق",
+    "title": "احجزي موعدكِ بكل سهولة",
+    "description": "اختاري الخدمة والوقت المناسب وسيتم تجهيز كل شيء لاستقبالك في أجواء من الخصوصية والرفاهية.",
+    "steps": ["1. اختيار الخدمة", "2. اليوم والوقت", "3. تأكيد البيانات"],
+    "service_label": "1. اختاري نوع الجلسة المطلوبة:",
+    "date_label": "2. اختاري اليوم المناسب:",
+    "days": ["السبت", "الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة"],
+    "custom_date_label": "أو اختاري تاريخاً محدداً",
+    "custom_date_placeholder": "أو اختاري تاريخاً محدداً",
+    "date_note": "سيتم تنسيق وتأكيد الساعة الدقيقة معكِ مباشرة عبر محادثة الواتساب.",
+    "client_label": "3. بيانات التواصل لسرعة التأكيد:",
+    "name_label": "الاسم الكريم *",
+    "name_placeholder": "مثال: ريم الأحمد",
+    "phone_label": "رقم الجوال / الواتساب *",
+    "phone_placeholder": "09xxxxxxxx",
+    "notes_label": "ملاحظات أو تفضيلات خاصة (اختياري)",
+    "notes_placeholder": "هل هذه أول تجربة لكِ في تركيب الرموش؟ أو لديكِ حساسية معينة؟",
+    "trust_badges": ["بدون أي دفع مسبق", "تأكيد فوري عبر الواتساب", "تعديل وإلغاء مرن"],
+    "warning_title": "تنبيه لطيف قبل الحجز",
+    "warning_text": "إذا كنتِ خضعتِ لعمليات الليزك خلال أقل من شهرين، أو تعانين من التهاب في الجفن أو الحساسية النشطة، نرجو التواصل أولاً قبل الحجز لتحديد ما إذا كانت الجلسة مناسبة لكِ.",
+    "consents": [
+      "أقر بأني لست مصابة بأي حساسية سابقة من غراء الرموش أو التهابات في العين.",
+      "أتعهد بالحضور بدون أي مكياج أو مسكارا على العين وبدون عدسات لاصقة.",
+      "قرأت شروط الموعد (الحضور قبل 5 دقائق وإبلاغ الصالون قبل 24 ساعة في حال الإلغاء)."
+    ],
+    "submit_button": "تأكيد الحجز عبر الواتساب",
+    "validation_name": "يرجى إدخال الاسم قبل تأكيد الحجز.",
+    "validation_service": "يرجى اختيار الخدمة المطلوبة قبل تأكيد الحجز.",
+    "validation_consent": "يجب الموافقة على جميع الشروط الصحية قبل تأكيد الحجز.",
+    "whatsapp_greeting": "مرحباً تيما",
+    "whatsapp_request": "بدي أحجز جلسة رموش:",
+    "whatsapp_name_label": "الاسم",
+    "whatsapp_service_label": "نوع الجلسة",
+    "whatsapp_date_label": "اليوم المختار",
+    "whatsapp_no_notes": "لا توجد ملاحظات/حساسية"
+  },
+  "faq_section": {
+    "eyebrow": "إجابات الخبيرات",
+    "title": "الأسئلة الشائعة وإرشادات العناية",
+    "description": "كل ما يهمكِ معرفته للحفاظ على سلامة عينيكِ ودوام رموشك بمظهر فائق النقاء والجمال."
+  },
+  "faqs": [
+    {
+      "question": "كيف أحافظ على الرموش في أول 24 ساعة؟",
+      "answer": "يُنصح بتجنب ملامسة الماء أو الساونا أو البخار والحرارة العالية خلال الـ 24 ساعة الأولى، وذلك لإتاحة الوقت لصمغ الرموش الطبي للجفاف الكامل وتحقيق أقصى ثبات ممكن."
+    },
+    {
+      "question": "هل تركيب الرموش يضر بالرموش الطبيعية؟",
+      "answer": "إطلاقاً! في Tyma Lashes نعتمد تقنية العزل اليدوي الدقيق شعرة بشعرة وبأوزان خفيفة للغاية، مما يضمن استمرار دورة حياة ونمو رموشك الطبيعية دون أي تساقط غير طبيعي."
+    },
+    {
+      "question": "ما هو الغسول المناسب لتنظيف الرموش المركبة؟",
+      "answer": "يجب استخدام شامبو مخصص للرموش (شامبو الرموش) خالي تماماً بنسبة 100% من أي زيوت أو كحول، فالتنظيف اليومي اللطيف يمنع تراكم الإفرازات ويطيل عمر الصمغ."
+    },
+    {
+      "question": "كم تدوم النتيجة ومتى أحتاج جلسة الرتوش (رتوش)؟",
+      "answer": "تدوم الجلسة الكاملة من 4 إلى 6 أسابيع حسب دورة تجدد رموشك الطبيعية. وننصح بجلسة رتوش كل أسبوعين إلى 3 أسابيع للمحافظة على الكثافة المتناسقة والرونق الدائم."
+    },
+    {
+      "question": "هل يمكنني وضع المسكارا على الرموش المركبة؟",
+      "answer": "لا يُنصح نهائياً بوضع المسكارا، حيث تحتوي على مركبات تفكك الصمغ كما تغلق المراوح اليدوية، ولن تحتاجي إليها على أي حال بفضل سواد وكثافة وصلاتنا الفاخرة!"
+    }
+  ],
+  "care_products_section": {
+    "eyebrow": "متجر العناية",
+    "title": "متجر منتجات العناية التكميلية",
+    "description": "أساس للعناية المنزلية، تنظيف لطيف، وأدوات تساعدكِ على الحفاظ على رموشكِ فاخرة وطبيعية لأطول فترة ممكنة.",
+    "order_button": "طلب عبر الواتساب",
+    "order_message_template": "مرحباً تيما, بدي أطلب منتج {name}"
+  },
+  "care_products": [
+    {
+      "category": "غسول الرموش",
+      "name": "رغوة تنظيف الرموش",
+      "description": "• خالية من الزيوت للحفاظ على الغراء.\n• تنظف الجفن وتمنع تراكم البكتيريا والفتائل.",
+      "price": "120",
+      "image": "",
+      "icon": "soap"
+    },
+    {
+      "category": "فرشاة تمشيط",
+      "name": "فرشاة تمشيط رموش كريستالية",
+      "description": "• ترفق بحافظة أنيقة ومنظمة للحمل.\n• تنظم الرموش وتسهل إعادة التمشيط اليومي.",
+      "price": "95",
+      "image": "",
+      "icon": "brush"
+    },
+    {
+      "category": "سيروم الرموش",
+      "name": "سيروم مغذي ومقوي",
+      "description": "• يحفّز نمو الرموش الطبيعية ويقوي الجذور.\n• يخفف من تكسير الرموش ويمنحها مظهر أكثر نضارة.",
+      "price": "180",
+      "image": "",
+      "icon": "auto_fix_high"
+    },
+    {
+      "category": "غطاء الوسادة",
+      "name": "غطاء وسادة ساتان/حريري",
+      "description": "• يحمي الرموش من الاحتكاك أثناء النوم.\n• يساهم في الحفاظ على الشكل ويمنع التشابك.",
+      "price": "140",
+      "image": "",
+      "icon": "bed"
+    }
+  ],
+  "gift_card_section": {
+    "eyebrow": "بطاقة هدية رقمية",
+    "title": "كرت إهداء لمن تحبين",
+    "description": "فاجئي صديقتكِ، أختكِ، أو من تحبين بجلسة عناية وجمال متكاملة للرموش. يمكنكِ طلب كرت إهداء مخصص باسمها بمناسبة عيد ميلاد، تخرج، أو لمجرد التعبير عن اهتمامكِ، ونحن ننسق معها موعد جلستها بكل حب.",
+    "benefits": ["جلسة كاملة", "رصيد مخصص", "هدية أنثوية"],
+    "cta": "اطلبي كرت إهداء عبر الواتساب",
+    "whatsapp_message": "مرحباً تيما, حابة أطلب كرت إهداء لجلسة رموش لشخص عزيز 🎁       ✨",
+    "card_label": "كرت إهداء خاص",
+    "card_eyebrow": "هدية فاخرة",
+    "card_title": "جلسة تركيب رموش مدفوعة مسبقاً",
+    "card_caption": "إهداء بكل محبة",
+    "value_label": "القيمة",
+    "value": "إهداء خاص"
+  },
+  "reviews_section": {
+    "eyebrow": "تجارب العملاء",
+    "title": "تجارب حقيقية.. ثقة تتجدد مع كل نظرة",
+    "rating": "5.0",
+    "add_review_button": "أرسلي تقييمك",
+    "modal_title": "شاركي تجربتكِ",
+    "submit_button": "إرسال التقييم",
+    "name_label": "الاسم",
+    "review_label": "تقييمك",
+    "stars_label": "عدد النجوم",
+    "close_label": "إغلاق",
+    "reviews": [
+      {
+        "name": "ريم س.",
+        "text": "شغل تيما خيالي! الرموش خفيفة جداً عالعين وما حسيت بأي ثقل، واستمروا معي شهر كامل متل أول يوم.",
+        "stars": 5,
+        "enabled": true,
+        "label": "عميلة متكررة"
+      },
+      {
+        "name": "مايا ك.",
+        "text": "أول مرة بجرب اللفتنغ وكنت خايفة، بس النتيجة طلعت فوق الوصف.. طبيعية ومرتبة بشكل مو طبيعي.",
+        "stars": 5,
+        "enabled": true,
+        "label": "أول جلسة لفتنغ"
+      },
+      {
+        "name": "شهد ع.",
+        "text": "النظافة والتعقيم والتعامل اللطيف لحالن بيستاهلوا 10 نجوم، غير دقة سحبة الـ Cat Eye اللي بتجنن.",
+        "stars": 5,
+        "enabled": true,
+        "label": "تجربة كاملة"
+      }
+    ]
+  },
+  "page_copy": {
+    "navigation": {
+      "services": "الخدمات والأسعار",
+      "gallery": "قبل وبعد",
+      "care": "العناية",
+      "booking": "الحجز",
+      "header_booking": "احجزي موعدك"
+    },
+    "trust_badges": {
+      "hero_badge_title": "عزل احترافي آمن",
+      "hero_badge_description": "بدون شد أو تكتل"
+    },
+    "footer": {
+      "location_title": "الموقع",
+      "contact_title": "التواصل",
+      "whatsapp_label": "واتساب:",
+      "instagram_label": "إنستغرام:",
+      "facebook_label": "فيسبوك:",
+      "copyright": "جميع الحقوق محفوظة © Tyma Lashes 2026"
+    },
+    "floating_whatsapp_message": "مرحباً تيما، عندي استفسار بخصوص جلسات الرموش",
+    "whatsapp_accessible_label": "واتساب",
+    "booking_success": "تم تجهيز طلب الحجز بنجاح، وسيتم توجيهك إلى واتساب لإرسال التفاصيل مباشرة.",
+    "aftercare_saved": "تم حفظ نصائح العناية في الحافظة بنجاح.",
+    "aftercare_unavailable": "لا يمكن حفظ النصائح الآن، ولكن يمكنك نسخها يدويًا."
+  }
+}
