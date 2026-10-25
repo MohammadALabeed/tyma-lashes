@@ -83,6 +83,14 @@
   </head>
   <body
     class="bg-[#FAF7F9] text-[#231624] min-h-screen relative selection:bg-[#D8B4E2]/30 selection:text-[#231624]">
+    <form name="reviews" data-netlify="true" netlify-honeypot="bot-field"
+      hidden>
+      <input type="hidden" name="form-name" value="reviews" />
+      <input type="text" name="name" />
+      <textarea name="review"></textarea>
+      <input type="text" name="rating" />
+      <input type="text" name="bot-field" />
+    </form>
     <div id="content-load-error"
       class="hidden fixed top-24 inset-x-4 z-[90] mx-auto max-w-xl rounded-2xl border border-red-300 bg-red-50 px-5 py-3 text-center text-sm text-red-800"
       role="alert"></div>
@@ -2670,7 +2678,7 @@
           if (event.key === 'Escape' && !modal.classList.contains('hidden')) closeReviewModal();
         });
       }
-      const reviewForm = document.querySelector('form[name="reviews"]');
+      const reviewForm = document.querySelector('#review-modal form[name="reviews"]');
       if (reviewForm) {
         reviewForm.querySelector('[name="name"]').setAttribute('aria-label', reviews.name_label);
         reviewForm.querySelector('[name="review"]').setAttribute('aria-label', reviews.review_label);
@@ -2713,12 +2721,15 @@
           reviewStatus.classList.add('hidden');
           reviewSubmitButton.disabled = true;
           try {
-            const response = await fetch('/', {
+            const formData = new FormData(reviewForm);
+            await fetch('/', {
               method: 'POST',
               headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-              body: new URLSearchParams(new FormData(reviewForm)).toString()
+              body: new URLSearchParams(formData).toString()
+            }).then(response => {
+              if (response.ok) return;
+              throw new Error('Network response was not ok');
             });
-            if (!response.ok) throw new Error('تعذر إرسال التقييم.');
 
             reviewForm.classList.add('hidden');
             reviewStatus.textContent = 'شكراً لمشاركتكِ! تم استلام تقييمكِ بنجاح';
