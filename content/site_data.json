@@ -246,6 +246,13 @@
       "price": "140",
       "image": "",
       "icon": "bed"
+    },
+    {
+      "category": "اي",
+      "name": "مس",
+      "description": "سوس",
+      "price": "مس",
+      "icon": "❤️‍🔥"
     }
   ],
   "aftercare_section": {
