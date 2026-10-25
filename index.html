@@ -1697,10 +1697,13 @@
             <button id="close-review-modal" type="button" aria-label="إغلاق"
               class="rounded-full px-3 py-1 text-2xl text-[#6B546D] hover:bg-[#F4EBF6]">&times;</button>
           </div>
-          <form name="customer-review" method="POST" data-netlify="true"
+          <div id="review-status"
+            class="hidden mb-4 rounded-xl border border-[#C9DED2] bg-[#EFF7F1] px-4 py-3 text-center text-sm font-semibold text-[#315F43]"
+            role="status" aria-live="polite"></div>
+          <form name="reviews" method="POST" data-netlify="true"
             netlify-honeypot="review-anti-bot" action="/"
             class="flex flex-col gap-4">
-            <input type="hidden" name="form-name" value="customer-review" />
+            <input type="hidden" name="form-name" value="reviews" />
             <p class="hidden"><label>لا تملئي هذا الحقل: <input
                   name="review-anti-bot" /></label></p>
             <label
@@ -2667,10 +2670,12 @@
           if (event.key === 'Escape' && !modal.classList.contains('hidden')) closeReviewModal();
         });
       }
-      const reviewForm = document.querySelector('form[name="customer-review"]');
+      const reviewForm = document.querySelector('form[name="reviews"]');
       if (reviewForm) {
         reviewForm.querySelector('[name="name"]').setAttribute('aria-label', reviews.name_label);
         reviewForm.querySelector('[name="review"]').setAttribute('aria-label', reviews.review_label);
+        const reviewStatus = document.getElementById('review-status');
+        const reviewSubmitButton = reviewForm.querySelector('[type="submit"]');
         const ratingGroup = reviewForm.querySelector('[role="radiogroup"]');
         const ratingInputs = Array.from(reviewForm.querySelectorAll('input[name="stars"]'));
         const renderRating = value => {
@@ -2700,6 +2705,39 @@
         });
         ratingGroup.addEventListener('change', event => {
           if (event.target.matches('input[name="stars"]')) renderRating(event.target.value);
+        });
+        reviewForm.addEventListener('submit', async event => {
+          event.preventDefault();
+          if (!reviewStatus || !reviewSubmitButton) return;
+
+          reviewStatus.classList.add('hidden');
+          reviewSubmitButton.disabled = true;
+          try {
+            const response = await fetch(reviewForm.action, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: new URLSearchParams(new FormData(reviewForm)).toString()
+            });
+            if (!response.ok) throw new Error('تعذر إرسال التقييم.');
+
+            reviewForm.classList.add('hidden');
+            reviewStatus.textContent = 'شكراً لمشاركتكِ! تم استلام تقييمكِ بنجاح';
+            reviewStatus.classList.remove('hidden', 'border-red-300', 'bg-red-50', 'text-red-800');
+            reviewStatus.classList.add('border-[#C9DED2]', 'bg-[#EFF7F1]', 'text-[#315F43]');
+            window.setTimeout(() => {
+              reviewForm.reset();
+              renderRating(0);
+              reviewForm.classList.remove('hidden');
+              reviewStatus.classList.add('hidden');
+              closeReviewModal();
+              reviewSubmitButton.disabled = false;
+            }, 2000);
+          } catch (error) {
+            reviewStatus.textContent = 'تعذر إرسال التقييم. يرجى المحاولة مرة أخرى.';
+            reviewStatus.classList.remove('hidden', 'border-[#C9DED2]', 'bg-[#EFF7F1]', 'text-[#315F43]');
+            reviewStatus.classList.add('border-red-300', 'bg-red-50', 'text-red-800');
+            reviewSubmitButton.disabled = false;
+          }
         });
       }
     }
