@@ -21,13 +21,13 @@ Tyma Lashes Studio is a polished, mobile-friendly salon website showcasing profe
 
 ### 🧰 Tech Stack
 
-| Area | Technology |
-| --- | --- |
-| Markup and styling | HTML5, CSS3, Tailwind CSS |
-| Front end | JavaScript |
-| Database and authentication | Supabase |
-| Hosting and identity | Netlify |
-| Content management | Decap CMS |
+| Area                        | Technology                |
+| ---                         | ---                       |
+| Markup and styling          | HTML5, CSS3, Tailwind CSS |
+| Front end                   | JavaScript                |
+| Database and authentication | Supabase                  |
+| Hosting and identity        | Netlify                   |
+| Content management          | Decap CMS                 |
 
 ### 🔗 Live Links
 
