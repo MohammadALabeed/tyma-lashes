@@ -229,7 +229,12 @@ collections:
               - { label: "السعر", name: "price", widget: "string" }
               - { label: "المدة", name: "duration", widget: "string" }
               - { label: "سعر الرتوش", name: "refill", widget: "string" }
-              - { label: "الأيقونة", name: "icon", widget: "string" }
+              - {
+                  label: "الأيقونة",
+                  name: "icon",
+                  widget: "string",
+                  required: false,
+                }
               - {
                   label: "الخدمة الأكثر طلباً",
                   name: "featured",
@@ -379,7 +384,12 @@ collections:
             fields:
               - { label: "العنوان", name: "title", widget: "string" }
               - { label: "النص التوضيحي", name: "description", widget: "text" }
-              - { label: "الأيقونة", name: "icon", widget: "string" }
+              - {
+                  label: "الأيقونة",
+                  name: "icon",
+                  widget: "string",
+                  required: false,
+                }
 
           - label: "نصوص العناية اللاحقة"
             name: "aftercare_section"
@@ -409,7 +419,12 @@ collections:
             fields:
               - { label: "العنوان", name: "title", widget: "string" }
               - { label: "التوضيح", name: "description", widget: "text" }
-              - { label: "الأيقونة", name: "icon", widget: "string" }
+              - {
+                  label: "الأيقونة",
+                  name: "icon",
+                  widget: "string",
+                  required: false,
+                }
 
           - label: "نصوص حاسبة مواعيد الرتوش"
             name: "retouches_calculator_text"
@@ -499,7 +514,12 @@ collections:
                   widget: "image",
                   required: false,
                 }
-              - { label: "الأيقونة", name: "icon", widget: "string" }
+              - {
+                  label: "الأيقونة",
+                  name: "icon",
+                  widget: "string",
+                  required: false,
+                }
 
           - label: "قسم بطاقة الإهداء"
             name: "gift_card_section"

@@ -2268,7 +2268,7 @@
         const servicesRoot = document.getElementById('services-grid');
         if (servicesRoot) {
           servicesRoot.innerHTML = data.services.map((service, index) => {
-            const icon = service.icon || 'auto_awesome';
+            const icon = String(service.icon || '').trim() || 'auto_awesome';
             const price = service.price || '0';
             const refill = service.refill || '0';
             const isFeatured = Boolean(service.featured);
@@ -2290,7 +2290,7 @@
                 <div class="flex flex-col gap-4 ${isFeatured ? 'pt-1' : ''}">
                   <div class="flex items-center justify-between">
                     <span class="w-10 h-10 rounded-2xl ${isFeatured ? 'bg-[#A3889B] text-white' : 'bg-[#F4EBF6] text-[#9E6B9B]'} flex items-center justify-center">
-                      <span class="material-symbols-outlined text-[22px]">${icon}</span>
+                      <span class="material-symbols-outlined text-[22px]">${escapeHtml(icon)}</span>
                     </span>
                     <span class="text-xs ${featuredAccent} px-3 py-1 rounded-full font-medium">${service.tag || 'خدمة'}</span>
                   </div>
@@ -2521,7 +2521,7 @@
             ${featured ? `<div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#A3889B] text-white px-4 py-1 rounded-full text-xs font-bold tracking-wider shadow-md">${escapeHtml(servicesSection.featured_label)}</div>` : ''}
             <div class="flex flex-col gap-4">
               <div class="flex items-center justify-between">
-                <span class="w-10 h-10 rounded-2xl ${featured ? 'bg-[#A3889B] text-white' : 'bg-[#F4EBF6] text-[#9E6B9B]'} flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">${escapeHtml(service.icon || 'auto_awesome')}</span></span>
+                <span class="w-10 h-10 rounded-2xl ${featured ? 'bg-[#A3889B] text-white' : 'bg-[#F4EBF6] text-[#9E6B9B]'} flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">${escapeHtml(String(service.icon || '').trim() || 'auto_awesome')}</span></span>
                 <span class="text-xs ${featured ? 'text-[#9E6B9B] bg-[#F4EBF6]' : 'text-[#6B546D] bg-[#FAF7F9] border border-[#E8DBE6]'} px-3 py-1 rounded-full font-medium">${escapeHtml(service.tag || '')}</span>
               </div>
               <div><h3 class="text-xl font-bold text-[#231624]">${escapeHtml(service.name)}</h3><p class="text-xs ${featured ? 'text-[#9E6B9B]' : 'text-[#6B546D]'} mt-1">${escapeHtml(service.description)}</p></div>
@@ -2545,7 +2545,7 @@
       if (preRoot && Array.isArray(data.pre_session)) {
         preRoot.innerHTML = data.pre_session.map(item => `
           <article class="bg-white rounded-3xl p-6 border border-[#E8DBE6] shadow-card-lux hover:shadow-soft-mauve transition-all flex flex-col items-center text-center gap-4">
-            <div class="w-14 h-14 rounded-2xl bg-[#F4EBF6] border border-[#E8DBE6] text-[#9E6B9B] flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-[28px]">${escapeHtml(item.icon || 'check_circle')}</span></div>
+            <div class="w-14 h-14 rounded-2xl bg-[#F4EBF6] border border-[#E8DBE6] text-[#9E6B9B] flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-[28px]">${escapeHtml(String(item.icon || '').trim() || 'check_circle')}</span></div>
             <h3 class="text-base font-bold text-[#231624]">${escapeHtml(item.title)}</h3>
             <p class="text-xs text-[#6B546D] leading-relaxed">${escapeHtml(item.description)}</p>
           </article>`).join('');
@@ -2569,7 +2569,7 @@
       if (aftercareRoot && Array.isArray(data.aftercare_checklist)) {
         aftercareRoot.innerHTML = data.aftercare_checklist.map(item => `
           <button class="aftercare-card group rounded-[24px] border border-[#E8DBE6] bg-[#FAF7F9] p-4 text-right transition-all duration-300 hover:-translate-y-1 hover:shadow-md" data-title="${escapeHtml(item.title)}" data-details="${escapeHtml(item.description)}">
-            <div class="flex items-center justify-between mb-3"><span class="text-[11px] font-bold text-[#9E6B9B] bg-white px-2.5 py-1 rounded-full border border-[#E8DBE6]">${escapeHtml(item.title)}</span><span class="material-symbols-outlined text-[#A3889B] text-[22px]">${escapeHtml(item.icon || 'check_circle')}</span></div>
+            <div class="flex items-center justify-between mb-3"><span class="text-[11px] font-bold text-[#9E6B9B] bg-white px-2.5 py-1 rounded-full border border-[#E8DBE6]">${escapeHtml(item.title)}</span><span class="material-symbols-outlined text-[#A3889B] text-[22px]">${escapeHtml(String(item.icon || '').trim() || 'check_circle')}</span></div>
             <p class="text-sm text-[#231624] leading-relaxed">${escapeHtml(item.description)}</p>
           </button>`).join('');
         aftercareRoot.querySelectorAll('.aftercare-card').forEach(card => {
@@ -2617,7 +2617,8 @@
       const productsRoot = document.getElementById('products-grid');
       if (productsRoot && Array.isArray(data.care_products)) {
         productsRoot.innerHTML = data.care_products.map((product, index) => {
-          const image = product.image ? `<img class="mb-4 h-28 w-full rounded-2xl object-cover" src="${escapeHtml(safeContentUrl(product.image, ''))}" alt="${escapeHtml(product.name)}" />` : `<div class="w-14 h-14 rounded-2xl bg-[#F4EBF6] flex items-center justify-center text-[#9E6B9B] mb-4"><span class="material-symbols-outlined text-[28px]">${escapeHtml(product.icon || 'spa')}</span></div>`;
+          const productIcon = String(product.icon || '').trim() || 'spa';
+          const image = product.image ? `<img class="mb-4 h-28 w-full rounded-2xl object-cover" src="${escapeHtml(safeContentUrl(product.image, ''))}" alt="${escapeHtml(product.name)}" />` : `<div class="w-14 h-14 rounded-2xl bg-[#F4EBF6] flex items-center justify-center text-[#9E6B9B] mb-4"><span class="material-symbols-outlined text-[28px]">${escapeHtml(productIcon)}</span></div>`;
           const message = (products.order_message_template || 'مرحباً تيما, بدي أطلب منتج {name}').replace('{name}', product.name);
           const bullets = String(product.description || '').split('\n').filter(Boolean);
           return `<article class="bg-white border border-[#E8DBE6] rounded-[28px] p-5 shadow-soft-mauve flex flex-col h-full">
