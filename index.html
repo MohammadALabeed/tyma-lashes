@@ -1701,11 +1701,11 @@
             class="hidden mb-4 rounded-xl border border-[#C9DED2] bg-[#EFF7F1] px-4 py-3 text-center text-sm font-semibold text-[#315F43]"
             role="status" aria-live="polite"></div>
           <form name="reviews" method="POST" data-netlify="true"
-            netlify-honeypot="review-anti-bot" action="/"
+            netlify-honeypot="bot-field" action="/"
             class="flex flex-col gap-4">
             <input type="hidden" name="form-name" value="reviews" />
             <p class="hidden"><label>لا تملئي هذا الحقل: <input
-                  name="review-anti-bot" /></label></p>
+                  name="bot-field" /></label></p>
             <label
               class="flex flex-col gap-2 text-sm font-semibold text-[#231624]">
               <span id="review-name-label">الاسم</span>
@@ -1724,35 +1724,35 @@
               <div class="flex items-center gap-1" dir="ltr" role="radiogroup"
                 aria-labelledby="review-stars-label">
                 <label class="cursor-pointer rounded-md p-1">
-                  <input class="peer sr-only" type="radio" name="stars"
+                  <input class="peer sr-only" type="radio" name="rating"
                     value="1" required />
                   <span
                     class="text-3xl text-[#B9A7B5] transition-colors peer-focus-visible:rounded peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-[#A3889B]"
                     data-rating-star="1" aria-hidden="true">☆</span>
                 </label>
                 <label class="cursor-pointer rounded-md p-1">
-                  <input class="peer sr-only" type="radio" name="stars"
+                  <input class="peer sr-only" type="radio" name="rating"
                     value="2" />
                   <span
                     class="text-3xl text-[#B9A7B5] transition-colors peer-focus-visible:rounded peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-[#A3889B]"
                     data-rating-star="2" aria-hidden="true">☆</span>
                 </label>
                 <label class="cursor-pointer rounded-md p-1">
-                  <input class="peer sr-only" type="radio" name="stars"
+                  <input class="peer sr-only" type="radio" name="rating"
                     value="3" />
                   <span
                     class="text-3xl text-[#B9A7B5] transition-colors peer-focus-visible:rounded peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-[#A3889B]"
                     data-rating-star="3" aria-hidden="true">☆</span>
                 </label>
                 <label class="cursor-pointer rounded-md p-1">
-                  <input class="peer sr-only" type="radio" name="stars"
+                  <input class="peer sr-only" type="radio" name="rating"
                     value="4" />
                   <span
                     class="text-3xl text-[#B9A7B5] transition-colors peer-focus-visible:rounded peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-[#A3889B]"
                     data-rating-star="4" aria-hidden="true">☆</span>
                 </label>
                 <label class="cursor-pointer rounded-md p-1">
-                  <input class="peer sr-only" type="radio" name="stars"
+                  <input class="peer sr-only" type="radio" name="rating"
                     value="5" />
                   <span
                     class="text-3xl text-[#B9A7B5] transition-colors peer-focus-visible:rounded peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-[#A3889B]"
@@ -2677,7 +2677,7 @@
         const reviewStatus = document.getElementById('review-status');
         const reviewSubmitButton = reviewForm.querySelector('[type="submit"]');
         const ratingGroup = reviewForm.querySelector('[role="radiogroup"]');
-        const ratingInputs = Array.from(reviewForm.querySelectorAll('input[name="stars"]'));
+        const ratingInputs = Array.from(reviewForm.querySelectorAll('input[name="rating"]'));
         const renderRating = value => {
           const rating = Number(value) || 0;
           ratingGroup.querySelectorAll('[data-rating-star]').forEach((star, index) => {
@@ -2704,7 +2704,7 @@
           renderRating(ratingInputs.find(input => input.checked)?.value);
         });
         ratingGroup.addEventListener('change', event => {
-          if (event.target.matches('input[name="stars"]')) renderRating(event.target.value);
+          if (event.target.matches('input[name="rating"]')) renderRating(event.target.value);
         });
         reviewForm.addEventListener('submit', async event => {
           event.preventDefault();
@@ -2713,7 +2713,7 @@
           reviewStatus.classList.add('hidden');
           reviewSubmitButton.disabled = true;
           try {
-            const response = await fetch(reviewForm.action, {
+            const response = await fetch('/', {
               method: 'POST',
               headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
               body: new URLSearchParams(new FormData(reviewForm)).toString()
