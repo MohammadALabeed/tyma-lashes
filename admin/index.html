@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>لوحة تحكم Tyma Lashes</title>
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-        <style>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لوحة تحكم Tyma Lashes</title>
+    <script
+      src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
       body {
         margin: 0;
         font-family: "Tajawal", "Cairo", sans-serif;
@@ -54,22 +55,25 @@
         font-size: 0.95rem;
       }
     </style>
-    </head>
-    <body>
-        <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-        <div class="cms-shell">
-            <div class="cms-card">
-                <div class="cms-brand">
-                    <div class="cms-brand-badge">✦</div>
-                    <div>
-                        <h1>لوحة تحكم Tyma Lashes</h1>
-                        <p>إدارة النصوص، الخدمات، الصور، ومعرض الأعمال</p>
-                    </div>
-                </div>
-            </div>
+  </head>
+  <body>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <div class="cms-shell">
+      <div class="cms-card">
+        <div class="cms-brand">
+          <div class="cms-brand-badge">✦</div>
+          <div>
+            <h1>لوحة تحكم Tyma Lashes</h1>
+            <p>إدارة النصوص، الخدمات، الصور، ومعرض الأعمال</p>
+            <a href="/admin/reviews.html"
+              style="display:inline-block;margin-top:12px;color:#8f7287;font-weight:700;text-decoration:underline">إدارة
+              تقييمات العملاء</a>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <script>
+    <script>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on('init', (user) => {
           if (!user) {
@@ -80,5 +84,5 @@
         });
       }
     </script>
-    </body>
+  </body>
 </html>

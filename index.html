@@ -23,6 +23,7 @@
     <title>Tyma Lashes | صالون تخصصي للرموش</title>
     <script
       src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
     <link
@@ -2368,6 +2369,47 @@
       return '★'.repeat(stars) + '☆'.repeat(5 - stars);
     }
 
+    const supabaseClient = window.supabase?.createClient(
+      'https://adrxhaodoqndwdjwcuda.supabase.co',
+      'sb_publishable_OCfPLSslBei4jfu99pX-DA_BKmoaCJG'
+    ) || null;
+
+    async function loadSupabaseReviews(fallbackRating = '5.0') {
+      const reviewsRoot = document.getElementById('reviews-grid');
+      if (!reviewsRoot || !supabaseClient) return;
+
+      const { data, error } = await supabaseClient
+        .from('reviews')
+        .select('id,name,comment,rating,created_at')
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error('تعذر تحميل التقييمات من Supabase:', error);
+        return;
+      }
+
+      const reviewRows = data || [];
+      if (!reviewRows.length) {
+        reviewsRoot.innerHTML = '<p class="col-span-full py-8 text-center text-sm text-[#6B546D]">لا توجد تقييمات حالياً.</p>';
+        setText('reviews-rating', '0.0');
+        setText('reviews-stars-rating', '☆☆☆☆☆');
+        return;
+      }
+
+      reviewsRoot.innerHTML = reviewRows.map(review => `
+        <article class="bg-white border border-[#E8DBE6] rounded-[28px] p-6 shadow-soft-mauve flex flex-col h-full">
+          <div class="flex items-center justify-between mb-5"><div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-full bg-[#F4EBF6] text-[#9E6B9B] flex items-center justify-center font-extrabold">${escapeHtml(Array.from(review.name || '?')[0])}</div>
+            <div><h3 class="text-base font-bold text-[#231624]">${escapeHtml(review.name)}</h3><p class="text-[11px] text-[#6B546D]">عميلة Tyma Lashes</p></div>
+          </div><span class="text-[#F4B942] text-sm" aria-label="${Number(review.rating)} من 5">${starsMarkup(review.rating)}</span></div>
+          <p class="text-sm leading-relaxed text-[#6B546D]">"${escapeHtml(review.comment)}"</p>
+        </article>`).join('');
+
+      const averageRating = reviewRows.reduce((total, review) => total + Number(review.rating || 0), 0) / reviewRows.length;
+      setText('reviews-rating', averageRating.toFixed(1));
+      setText('reviews-stars-rating', starsMarkup(Math.round(averageRating)));
+    }
+
     function whatsappLink(settings, message) {
       const base = safeContentUrl(settings.whatsapp_link, 'https://wa.me/');
       return `${base}${base.includes('?') ? '&' : '?'}text=${encodeURIComponent(message)}`;
@@ -2649,7 +2691,6 @@
       const giftLink = document.querySelector('#gift-cta')?.closest('a');
       if (giftLink) giftLink.href = whatsappLink(settings, gift.whatsapp_message);
 
-      const reviewTexts = reviews.reviews || [];
       setText('reviews-eyebrow', reviews.eyebrow);
       setText('reviews-title', reviews.title);
       setText('reviews-rating', reviews.rating);
@@ -2665,14 +2706,7 @@
       if (reviewClose) reviewClose.setAttribute('aria-label', reviews.close_label);
       const reviewsRoot = document.getElementById('reviews-grid');
       if (reviewsRoot) {
-        reviewsRoot.innerHTML = reviewTexts.filter(review => review.enabled).map(review => `
-          <article class="bg-white border border-[#E8DBE6] rounded-[28px] p-6 shadow-soft-mauve flex flex-col h-full">
-            <div class="flex items-center justify-between mb-5"><div class="flex items-center gap-3">
-              <div class="w-11 h-11 rounded-full bg-[#F4EBF6] text-[#9E6B9B] flex items-center justify-center font-extrabold">${escapeHtml(Array.from(review.name || '?')[0])}</div>
-              <div><h3 class="text-base font-bold text-[#231624]">${escapeHtml(review.name)}</h3><p class="text-[11px] text-[#6B546D]">${escapeHtml(review.label || '')}</p></div>
-            </div><span class="text-[#F4B942] text-sm" aria-label="${Number(review.stars)} من 5">${starsMarkup(review.stars)}</span></div>
-            <p class="text-sm leading-relaxed text-[#6B546D]">"${escapeHtml(review.text)}"</p>
-          </article>`).join('');
+        loadSupabaseReviews(reviews.rating);
       }
 
       const navigation = copy.navigation;
@@ -2804,14 +2838,16 @@
           reviewSubmitButton.disabled = true;
           try {
             const formData = new FormData(reviewForm);
-            await fetch('/', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-              body: new URLSearchParams(formData).toString()
-            }).then(response => {
-              if (response.ok) return;
-              throw new Error('Network response was not ok');
+            if (String(formData.get('bot-field') || '').trim()) return;
+            if (!supabaseClient) throw new Error('Supabase client unavailable');
+            const { error } = await supabaseClient.from('reviews').insert({
+              name: String(formData.get('name') || '').trim(),
+              comment: String(formData.get('review') || '').trim(),
+              rating: Number(formData.get('rating')),
+              created_at: new Date().toISOString()
             });
+            if (error) throw error;
+            await loadSupabaseReviews(reviews.rating);
 
             reviewForm.classList.add('hidden');
             reviewStatus.textContent = 'شكراً لمشاركتكِ! تم استلام تقييمكِ بنجاح';
