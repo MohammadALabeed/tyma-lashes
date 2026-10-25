@@ -1880,38 +1880,56 @@
             class="flex flex-col items-start md:items-start gap-3 text-right">
             <h4 id="footer-contact-title"
               class="text-lg font-bold text-[#2D1830]">التواصل</h4>
-            <a
-              id="footer-whatsapp-link" href="https://wa.me/963996932294"
-              target="_blank" rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-[#9E6B9B] transition-colors text-right">
-              <span
-                class="material-symbols-outlined text-[18px] text-[#9E6B9B]">chat</span>
-              <span id="footer-whatsapp-label">واتساب:</span> <span
-                id="footer-whatsapp-number" dir="ltr"
+            <div class="flex flex-wrap items-center gap-3"
+              aria-label="روابط التواصل الاجتماعي">
+              <a id="footer-whatsapp-link" href="https://wa.me/963996932294"
+                target="_blank" rel="noopener noreferrer" aria-label="واتساب"
+                title="واتساب"
+                class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#E8DBE6] bg-[#F4EBF6] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-white hover:shadow-md active:scale-95">
+                <svg viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true">
+                  <path fill="#25D366"
+                    d="M12.04 2a9.93 9.93 0 0 0-8.46 15.13L2.5 21.5l4.48-1.04A9.94 9.94 0 1 0 12.04 2Zm0 18.02c-1.48 0-2.93-.4-4.2-1.16l-.3-.18-2.66.62.64-2.59-.2-.32a8.26 8.26 0 1 1 6.72 3.63Zm4.53-6.19c-.25-.13-1.47-.73-1.7-.81-.23-.08-.4-.13-.57.13-.17.25-.65.81-.8.97-.15.17-.3.19-.55.06-.25-.13-1.07-.4-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.52.12-.12.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.57-1.37-.78-1.88-.2-.5-.41-.43-.57-.44h-.49c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.43 1.03 2.6c.13.17 1.77 2.7 4.28 3.79.6.26 1.07.42 1.44.53.61.19 1.16.16 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29Z" />
+                </svg>
+              </a>
+              <a id="footer-instagram-link"
+                href="https://instagram.com/tyma_lashartist_"
+                target="_blank" rel="noopener noreferrer" aria-label="إنستغرام"
+                title="إنستغرام"
+                class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#E8DBE6] bg-[#F4EBF6] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-white hover:shadow-md active:scale-95">
+                <svg viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true">
+                  <defs>
+                    <lineargradient id="instagram-footer-gradient" x1="0" y1="1"
+                      x2="1" y2="0">
+                      <stop offset="0" stop-color="#FEDA75" />
+                      <stop offset="0.5" stop-color="#D62976" />
+                      <stop offset="1" stop-color="#4F5BD5" />
+                    </lineargradient>
+                  </defs>
+                  <rect x="3" y="3" width="18" height="18" rx="5" fill="none"
+                    stroke="url(#instagram-footer-gradient)"
+                    stroke-width="2.2" />
+                  <circle cx="12" cy="12" r="4.2" fill="none"
+                    stroke="url(#instagram-footer-gradient)"
+                    stroke-width="2.2" />
+                  <circle cx="17.6" cy="6.6" r="1.25" fill="#D62976" />
+                </svg>
+              </a>
+              <a id="footer-facebook-link"
+                href="https://www.facebook.com/share/1cwxPdEtws/?mibextid=wwXIfr"
+                target="_blank" rel="noopener noreferrer" aria-label="فيسبوك"
+                title="فيسبوك"
+                class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#E8DBE6] bg-[#F4EBF6] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-white hover:shadow-md active:scale-95">
+                <svg viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true">
+                  <path fill="#1877F2"
+                    d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.019 4.388 11.008 10.125 11.91v-8.42H7.078v-3.49h3.047V9.41c0-3.026 1.792-4.7 4.533-4.7 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.885v2.262h3.328l-.532 3.49h-2.796v8.42C19.612 23.08 24 18.092 24 12.073Z" />
+                </svg>
+              </a>
+            </div>
+            <p class="flex items-center gap-2 text-sm text-gray-700">
+              <span id="footer-whatsapp-label">واتساب:</span>
+              <span id="footer-whatsapp-number" dir="ltr"
                 class="font-sans font-medium">0996 932 294</span>
-            </a>
-            <a
-              id="footer-instagram-link"
-              href="https://www.instagram.com/tyma_lashartist_"
-              target="_blank" rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-[#9E6B9B] transition-colors text-right">
-              <span
-                class="material-symbols-outlined text-[18px] text-[#9E6B9B]">photo_camera</span>
-              <span id="footer-instagram-label">إنستغرام:</span> <span
-                id="footer-instagram-handle" dir="ltr"
-                class="font-sans">@tyma_lashartist_</span>
-            </a>
-            <a
-              id="footer-facebook-link"
-              href="https://www.facebook.com/share/1cwxPdEtws/?mibextid=wwXIfr"
-              target="_blank" rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-[#9E6B9B] transition-colors text-right">
-              <span
-                class="material-symbols-outlined text-[18px] text-[#9E6B9B]">facebook</span>
-              <span id="footer-facebook-label">فيسبوك:</span> <span
-                id="footer-facebook-name" dir="ltr"
-                class="font-sans">Tyma Lashes</span>
-            </a>
+            </p>
           </div>
         </div>
 
