@@ -72,6 +72,14 @@
       background-color: #FAF7F9;
       color: #231624;
     }
+    html {
+      scroll-behavior: smooth;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
     .brand-font {
       font-family: 'Playfair Display', serif;
     }
@@ -147,8 +155,17 @@
             class="text-[#6B546D] hover:text-[#231624] font-medium text-sm transition-colors"
             href="#booking">الحجز</a>
         </nav>
+        <button id="mobile-menu-toggle" type="button" aria-label="فتح القائمة"
+          aria-controls="mobile-navigation" aria-expanded="false"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#E8DBE6] bg-white text-[#6B546D] transition-colors hover:bg-[#F4EBF6] md:hidden">
+          <span class="flex w-5 flex-col gap-1" aria-hidden="true">
+            <span class="h-0.5 w-full rounded bg-current"></span>
+            <span class="h-0.5 w-full rounded bg-current"></span>
+            <span class="h-0.5 w-full rounded bg-current"></span>
+          </span>
+        </button>
         <!-- Action -->
-        <div class="flex items-center gap-3">
+        <div class="hidden items-center gap-3 md:flex">
           <a data-cms="navigation.header_booking"
             class="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#A3889B] hover:bg-[#8F7287] text-white font-medium text-sm shadow-md shadow-[#A3889B]/25 transition-all duration-300 transform hover:-translate-y-0.5"
             href="#booking">
@@ -157,6 +174,35 @@
         </div>
       </div>
     </header>
+    <div id="mobile-navigation" class="fixed inset-0 z-[70] hidden md:hidden"
+      aria-hidden="true">
+      <button id="mobile-menu-backdrop" type="button"
+        class="absolute inset-0 h-full w-full bg-[#231624]/45"
+        aria-label="إغلاق القائمة"></button>
+      <aside id="mobile-menu-panel"
+        class="absolute right-0 top-0 flex h-full w-[min(86vw,360px)] flex-col bg-[#FAF7F9] p-6 shadow-2xl"
+        role="dialog" aria-modal="true" aria-label="قائمة التنقل" dir="rtl">
+        <div
+          class="mb-8 flex items-center justify-between border-b border-[#E8DBE6] pb-5">
+          <span class="text-lg font-extrabold text-[#231624]">التنقل</span>
+          <button id="mobile-menu-close" type="button"
+            aria-label="إغلاق القائمة"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-xl text-2xl text-[#6B546D] hover:bg-[#F4EBF6]">×</button>
+        </div>
+        <nav class="flex flex-col gap-2 text-base font-bold">
+          <a class="rounded-xl px-4 py-3 text-[#231624] hover:bg-[#F4EBF6]"
+            href="#services-pricing">الخدمات والأسعار</a>
+          <a class="rounded-xl px-4 py-3 text-[#231624] hover:bg-[#F4EBF6]"
+            href="#before-after">قبل وبعد</a>
+          <a class="rounded-xl px-4 py-3 text-[#231624] hover:bg-[#F4EBF6]"
+            href="#care">العناية</a>
+          <a class="rounded-xl px-4 py-3 text-[#231624] hover:bg-[#F4EBF6]"
+            href="#booking">الحجز</a>
+          <a class="rounded-xl px-4 py-3 text-[#231624] hover:bg-[#F4EBF6]"
+            href="#testimonials">التقييمات</a>
+        </nav>
+      </aside>
+    </div>
     <main class="w-full pt-24">
       <!-- HERO SECTION -->
       <section class="relative w-full overflow-hidden py-14 lg:py-24">
@@ -2885,7 +2931,6 @@
       }
 
       const bookingCopy = activeSiteData?.booking_section || {};
-      const formattedNotes = notes || bookingCopy.whatsapp_no_notes || 'لا توجد ملاحظات/حساسية';
       const dateLabel = customDateInput && customDateInput.value ? new Intl.DateTimeFormat('ar-EG', {
         day: 'numeric',
         month: 'numeric',
@@ -2900,6 +2945,7 @@
         `• ${bookingCopy.whatsapp_service_label || 'نوع الجلسة'}: ${serviceName}`,
         `• ${bookingCopy.whatsapp_date_label || 'اليوم المختار'}: ${dateLabel}`
       ];
+      if (notes) messageLines.push(`• ملاحظات: ${notes}`);
 
       const settings = activeSiteData?.general_settings;
       const whatsappUrl = settings
@@ -2930,6 +2976,35 @@
     };
 
     updateBookingSubmitState();
+
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileNavigation = document.getElementById('mobile-navigation');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+    const closeMobileMenu = () => {
+      mobileNavigation.classList.add('hidden');
+      mobileNavigation.setAttribute('aria-hidden', 'true');
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('overflow-hidden');
+    };
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileNavigation.classList.remove('hidden');
+      mobileNavigation.setAttribute('aria-hidden', 'false');
+      mobileMenuToggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('overflow-hidden');
+      mobileMenuClose.focus();
+    });
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+    mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+    mobileNavigation.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !mobileNavigation.classList.contains('hidden')) {
+        closeMobileMenu();
+        mobileMenuToggle.focus();
+      }
+    });
   </script>
     <script>
     if (window.netlifyIdentity) {
