@@ -2969,7 +2969,7 @@
       const whatsappUrl = settings
         ? whatsappLink(settings, messageLines.join('\n'))
         : `https://wa.me/963996932294?text=${encodeURIComponent(messageLines.join('\n'))}`;
-      window.open(whatsappUrl, '_blank', 'noopener');
+      window.location.href = whatsappUrl;
 
       if (nameInput) nameInput.value = '';
       if (phoneInput) phoneInput.value = '';
